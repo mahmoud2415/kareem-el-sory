@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مطعم كريم السوري | KAREEM AL-SOURI</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-red': '#dc2626',
+                        'brand-dark': '#e5e7eb',
+                        'brand-gold': '#8a4b08',
+                    },
+                    fontFamily: {
+                        sans: ['Cairo', 'sans-serif'],
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float': 'float 3s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="bg-gray-50 text-gray-800 antialiased min-h-screen pb-24">
+
+<header class="relative w-full bg-white pb-6">
+    
+    <div class="relative w-full">
+        <img 
+            src="images/placeholder.jpg" 
+            alt="مطعم كريم السوري" 
+            class="w-full h-auto max-h-[85vh] block mx-auto shadow-lg"
+        >
+        
+        <div class="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-white via-white/60 to-transparent"></div>
+    </div>
+
+    <div class="relative z-10 -mt-20 px-4">
+        <div class="container mx-auto max-w-4xl text-center">
+            
+            <h1 class="text-3xl md:text-5xl font-black text-gray-900 drop-shadow-lg mb-6 tracking-wide">
+                مطعم <span class="text-brand-gold">كريم السوري</span>
+            </h1>
+
+            <div class="flex flex-col sm:flex-row gap-3 items-center justify-center animate-fade-in-up">
+                
+                <button onclick="document.getElementById('categories-wall').scrollIntoView({behavior: 'smooth'})" 
+                        class="w-full sm:w-auto flex-1 bg-brand-red hover:bg-red-600 text-white py-4 px-6 rounded-xl font-bold text-lg shadow-[0_4px_20px_rgba(220,38,38,0.4)] border-b-4 border-red-800 transition-transform active:scale-95 flex items-center justify-center gap-2">
+                    <span> أدخل علي المنيو</span>
+                    <i class="fas fa-arrow-left"></i>
+                </button>
+
+                <div class="flex gap-3 w-full sm:w-auto flex-1">
+                    <a href="tel:01043626402" 
+                       class="flex-1 bg-white border border-gray-200 hover:bg-gray-50 text-gray-800 py-4 px-4 rounded-xl font-bold transition-all flex items-center justify-center gap-2 shadow-lg">
+                        <i class="fas fa-phone-alt text-brand-red"></i>
+                        <span>اتصل</span>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+    <main id="menu-section" class="container mx-auto px-4 pt-12">
+        
+        <div class="mb-8">
+            <h2 class="text-gray-700 text-sm font-bold mb-3 px-1">اختر القسم:</h2>
+            <div id="categories-wall" class="grid grid-cols-2 md:grid-cols-2 gap-4 max-w-2xl mx-auto">
+                </div>
+        </div>
+
+        <div class="flex items-center gap-4 mb-6 sticky top-4 z-30 py-3 bg-white/95 backdrop-blur rounded-xl px-4 shadow-lg border border-gray-200">
+            <div class="h-px bg-gradient-to-r from-transparent via-brand-red to-transparent flex-1"></div>
+            <span id="current-category-title" class="text-brand-gold font-bold text-lg">المنيو</span>
+            <div class="h-px bg-gradient-to-r from-transparent via-brand-red to-transparent flex-1"></div>
+        </div>
+
+        <div id="menu-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pb-20">
+            </div>
+
+    </main>
+
+    <button onclick="toggleCart()" aria-label="فتح سلة التسوق" class="fixed bottom-6 left-6 z-50 bg-brand-red text-white w-16 h-16 rounded-full shadow-[0_0_20px_rgba(220,38,38,0.5)] flex items-center justify-center transition-transform hover:scale-110 active:scale-95 border-4 border-gray-50">
+        <i class="fas fa-shopping-bag text-2xl"></i>
+        <span id="cart-badge" class="absolute -top-1 -right-1 bg-brand-gold text-white text-xs font-bold w-6 h-6 flex items-center justify-center rounded-full border-2 border-brand-red transform scale-0 transition-transform duration-300">0</span>
+    </button>
+
+    <div id="cart-modal" class="fixed inset-0 z-[60] hidden" role="dialog" aria-modal="true" aria-labelledby="cart-title">
+        <div class="absolute inset-0 bg-black/80 backdrop-blur-sm transition-opacity" onclick="toggleCart()"></div>
+        <div class="absolute bottom-0 left-0 right-0 md:top-0 md:right-0 md:left-auto md:w-96 bg-white border-t md:border-l border-gray-200 shadow-2xl rounded-t-2xl md:rounded-none md:rounded-l-2xl flex flex-col max-h-[90vh] md:max-h-screen transition-transform transform translate-y-full md:translate-y-0 md:translate-x-full duration-300" id="cart-panel">
+            <div class="p-4 border-b border-gray-200 flex justify-between items-center bg-gray-50">
+                <h2 id="cart-title" class="text-xl font-bold text-gray-900"><i class="fas fa-shopping-cart me-2"></i>السلة</h2>
+                <button onclick="toggleCart()" class="w-8 h-8 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-800 flex items-center justify-center"><i class="fas fa-times"></i></button>
+            </div>
+            
+            <div class="flex-1 overflow-y-auto p-4 custom-scrollbar">
+                <div id="cart-items" class="space-y-3 mb-6"></div>
+                
+                <div id="customer-form" class="bg-gray-50 p-4 rounded-xl border border-gray-200 space-y-3 hidden">
+                    <h3 class="text-brand-red font-bold text-sm mb-2 border-b border-gray-200 pb-2">بيانات الطلب</h3>
+                    <input type="text" id="cust-name" placeholder="الاسم بالكامل" class="w-full bg-white text-gray-900 text-sm rounded-lg p-3 border border-gray-300 focus:border-brand-red focus:outline-none">
+                    <input type="tel" id="cust-phone" placeholder="رقم الهاتف" class="w-full bg-white text-gray-900 text-sm rounded-lg p-3 border border-gray-300 focus:border-brand-red focus:outline-none">
+                    <div class="flex gap-2">
+                        <label class="flex-1 cursor-pointer">
+                            <input type="radio" name="orderType" value="delivery" class="peer hidden" checked onchange="toggleAddressInput()">
+                            <div class="text-center p-2 rounded-lg bg-white border border-gray-300 peer-checked:bg-brand-red peer-checked:text-white text-gray-600 text-xs transition-all"><i class="fas fa-motorcycle mb-1 block"></i> دليفري</div>
+                        </label>
+                        <label class="flex-1 cursor-pointer">
+                            <input type="radio" name="orderType" value="pickup" class="peer hidden" onchange="toggleAddressInput()">
+                            <div class="text-center p-2 rounded-lg bg-white border border-gray-300 peer-checked:bg-brand-red peer-checked:text-white text-gray-600 text-xs transition-all"><i class="fas fa-store mb-1 block"></i> استلام</div>
+                        </label>
+                    </div>
+                    <div id="address-field">
+                        <textarea id="cust-address" rows="2" placeholder="العنوان بالتفصيل" class="w-full bg-white text-gray-900 text-sm rounded-lg p-3 border border-gray-300 focus:border-brand-red focus:outline-none"></textarea>
+                    </div>
+                <div class="mt-4">
+                    <label class="block text-gray-600 text-sm mb-2">ملاحظة عامة على الطلب (اختياري)</label>
+                    <textarea id="order-note" rows="2" placeholder="مثلا بدون كاتشب او اكتب اللي انت عايزه" 
+                    class="w-full bg-white border border-gray-300 rounded-lg p-3 text-gray-900 focus:outline-none focus:border-brand-red resize-none"></textarea>
+                </div>
+                </div>
+            </div>
+
+            <div class="p-4 border-t border-gray-200 bg-gray-50">
+                <div class="flex justify-between items-center mb-4 text-lg font-bold text-gray-900">
+                    <span>الإجمالي:</span>
+                    <span id="cart-total" class="text-brand-gold">0 ج.م</span>
+                </div>
+                <button onclick="checkout()" class="w-full py-3 bg-green-600 hover:bg-green-700 text-white rounded-xl font-bold shadow-lg transition-colors flex items-center justify-center gap-2">
+                    <i class="fab fa-whatsapp text-xl"></i> إتمام الطلب واتساب
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="options-modal" class="fixed inset-0 z-[70] hidden" role="dialog" aria-modal="true" aria-labelledby="modal-item-name">
+    <div class="absolute inset-0 bg-gray-900/50 backdrop-blur-sm transition-opacity" onclick="closeOptionsModal()"></div>
+    
+    <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[90%] max-w-md bg-white border border-gray-200 rounded-2xl shadow-2xl overflow-hidden animate-fade-in-up flex flex-col max-h-[85vh]">
+        
+        <div class="bg-brand-red p-4 flex justify-between items-center shadow-lg relative z-10">
+            <h3 id="modal-item-name" class="text-white font-bold text-lg pr-2">اسم المنتج</h3>
+            <button onclick="closeOptionsModal()" class="text-white/80 hover:text-white hover:bg-black/10 rounded-full w-8 h-8 flex items-center justify-center transition-colors">
+                <i class="fas fa-times text-xl"></i>
+            </button>
+        </div>
+
+        <div class="relative w-full h-48 bg-gray-100">
+            <img id="modal-img" src="" alt="Product Image" class="w-full h-full object-cover hover:opacity-100 transition-opacity duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-white/70 to-transparent"></div>
+        </div>
+
+        <div class="p-5 overflow-y-auto custom-scrollbar flex-1">
+            
+            <div id="modal-sizes-section" class="mb-6 hidden">
+                <h4 class="text-brand-red font-bold text-sm mb-3 px-1 flex items-center gap-2">
+                    <i class="fas fa-ruler-combined"></i> اختر الحجم:
+                </h4>
+                <div id="modal-sizes-container" class="space-y-3">
+                    </div>
+            </div>
+
+            <div id="modal-extras-section" class="mb-4">
+                
+                <h4 class="text-brand-red font-bold text-sm mb-3 px-1 flex items-center gap-2">
+                    <i class="fas fa-plus-circle"></i> دلع نفسك (إضافات):
+                </h4>
+                <div id="modal-spicy-section" class="hidden mb-4"></div>
+                <div id="modal-extras-container" class="space-y-2">
+                    </div>
+            </div>
+
+        </div>
+        
+
+        <div class="bg-gray-50 p-4 border-t border-gray-200">
+            <div class="flex justify-between items-center mb-4 px-2">
+                <span class="text-gray-600 text-sm">الإجمالي:</span>
+                <span id="modal-total-price" class="text-2xl font-bold text-brand-red">0 ج.م</span>
+                
+            </div>
+            <button id="modal-add-btn" onclick="submitOptionOrder()" class="w-full bg-brand-red hover:bg-red-700 text-white py-3.5 rounded-xl font-bold text-lg shadow-lg shadow-red-900/20 transition-all transform active:scale-95 flex items-center justify-center gap-2">
+                <span>إضافة للسلة</span>
+                <i class="fas fa-cart-plus"></i>
+            </button>
+        </div>
+    </div>
+    </div>
+    <footer class="bg-white border-t border-gray-200 pt-16 pb-8 text-gray-800 relative overflow-hidden mt-20">
+    
+    <div class="absolute top-0 left-1/2 transform -translate-x-1/2 w-full max-w-3xl h-1 bg-gradient-to-r from-transparent via-brand-red/50 to-transparent"></div>
+    <div class="absolute -bottom-20 -right-20 w-96 h-96 bg-brand-red/5 rounded-full blur-[100px]"></div>
+
+    <div class="container mx-auto px-4 relative z-10">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+            
+            <div class="space-y-6 text-center md:text-right">
+                <h3 class="text-3xl font-bold text-gray-900">
+                    مطعم <span class="text-brand-red">كريم السوري</span>
+                </h3>
+                <p class="text-gray-600 leading-relaxed">
+                    أحلى سورية بكل لقمة. شاورما، كريب، ودنات غربي — أكل سوري ودنة أصلي.
+                </p>
+                <div class="flex justify-center md:justify-start gap-4 pt-2">
+                    <a href="https://wa.me/201043626402" target="_blank" class="w-10 h-10 rounded-full bg-[#25D366]/10 border border-[#25D366]/20 flex items-center justify-center hover:bg-[#25D366] transition-all group text-[#25D366]">
+                        <i class="fab fa-whatsapp group-hover:text-white"></i>
+                    </a>
+                    <a href="tel:01043626402" class="w-10 h-10 rounded-full bg-gray-100 border border-gray-200 flex items-center justify-center hover:bg-brand-red transition-all group text-brand-red hover:text-white">
+                        <i class="fas fa-phone-alt"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="text-center md:text-right">
+                <h4 class="text-xl font-bold text-gray-900 mb-6 relative inline-block">
+                    روابط سريعة
+                    <span class="absolute -bottom-2 right-0 w-1/2 h-0.5 bg-brand-red"></span>
+                </h4>
+                <ul class="space-y-3">
+                    <li><a href="#" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="text-gray-600 hover:text-brand-red transition-all block"><i class="fas fa-home ml-2 text-brand-red"></i> الرئيسية</a></li>
+                    <li><a href="#menu-section" class="text-gray-600 hover:text-brand-red transition-all block"><i class="fas fa-utensils ml-2 text-brand-red"></i> المنيو</a></li>
+                </ul>
+            </div>
+
+            <div class="text-center md:text-right">
+                <h4 class="text-xl font-bold text-gray-900 mb-6 relative inline-block">
+                    اطلب دليفري
+                    <span class="absolute -bottom-2 right-0 w-1/2 h-0.5 bg-brand-red"></span>
+                </h4>
+                <ul class="space-y-3">
+                    <li>
+                        <a href="tel:01043626402" class="flex items-center justify-center md:justify-start gap-3 text-gray-600 hover:text-brand-red transition-colors">
+                            <i class="fas fa-phone-alt text-brand-red"></i> <span dir="ltr">010 43 62 64 02</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://wa.me/201043626402" target="_blank" class="flex items-center justify-center md:justify-start gap-3 text-gray-600 hover:text-brand-red transition-colors">
+                            <i class="fab fa-whatsapp text-brand-red"></i> <span>واتساب الطلبات</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="border-t border-gray-200 mt-12 pt-8 text-center">
+            <p class="text-gray-500 text-sm">
+                © 2026 جميع الحقوق محفوظة لـ <span class="text-brand-gold font-bold">مطعم كريم السوري</span>
+            </p>
+            
+            <p class="text-gray-500 text-xs mt-3 flex items-center justify-center gap-1">
+                تم التطوير بواسطة المطور 
+                <a href="https://wa.me/201020805451" target="_blank" class="text-brand-red hover:text-brand-gold font-bold transition-colors flex items-center gap-1">
+                    محمود عبدالمعطي <i class="fab fa-whatsapp text-green-500"></i>
+                </a>
+            </p>
+        </div>
+    </div>
+</footer>
+    <script src="script.js"></script>
+    <script>
+    function checkout() {
+        console.log("بداية تشغيل كود الدفع الجديد..."); // عشان نتأكد من الكونسول
+
+        // 1. التأكد إن السلة مش فاضية
+        if (typeof cart === 'undefined' || cart.length === 0) {
+            alert("السلة فارغة! 🛒");
+            return;
+        }
+
+        // 2. قراءة البيانات من الصفحة
+        const nameInput = document.getElementById('cust-name');
+        const phoneInput = document.getElementById('cust-phone');
+        const addressInput = document.getElementById('cust-address');
+        const noteInput = document.getElementById('order-note'); // خانة الملاحظات
+        const orderTypeInput = document.querySelector('input[name="orderType"]:checked');
+
+        // استخراج القيم (مع حماية ضد الأخطاء)
+        const name = nameInput ? nameInput.value.trim() : '';
+        const phone = phoneInput ? phoneInput.value.trim() : '';
+        const address = addressInput ? addressInput.value.trim() : '';
+        const userNote = noteInput ? noteInput.value.trim() : ''; 
+
+        // 3. التحقق (Validation)
+        if (!orderTypeInput) { alert("اختار طريقة الاستلام (توصيل ولا من الفرع) الأول"); return; }
+        const orderType = orderTypeInput.value;
+
+        if (!name) { alert("اكتب اسمك يا كبير ❤️"); return; }
+        if (!phone) { alert("اكتب رقم تليفونك 📞"); return; }
+        if (orderType === 'delivery' && !address) { alert("العنوان بالتفصيل 🛵"); return; }
+
+        // 4. تجهيز الرسالة
+        let msg = `*طلب جديد من الموقع* 🛒%0a`;
+        msg += `---------------------------%0a`;
+        msg += `👤 *الاسم:* ${name}%0a`;
+        msg += `📱 *رقم:* ${phone}%0a`;
+        msg += `🛵 *النوع:* ${orderType === 'delivery' ? 'توصيل للمنزل' : 'استلام من الفرع'}%0a`;
+        
+        if (orderType === 'delivery') {
+            msg += `📍 *العنوان:* ${address}%0a`;
+        }
+
+        // ✅✅ إضافة الملاحظة للرسالة ✅✅
+        if (userNote !== "") {
+            msg += `📝 *ملاحظة عامة:* ${userNote}%0a`;
+        }
+
+        msg += `---------------------------%0a`;
+        msg += `*🧾 الطلبات:*%0a`;
+
+        // 5. حساب الطلبات
+        let total = 0;
+        cart.forEach(item => {
+            let priceNum = 0;
+            // معالجة السعر سواء كان رقماً أو نصاً
+            if (typeof item.price === 'string') {
+                priceNum = parseFloat(item.price.replace(/[^\d.]/g, '')) || 0;
+            } else {
+                priceNum = item.price;
+            }
+            
+            const itemTotal = priceNum * item.qty;
+            total += itemTotal;
+
+            msg += `▪️ ${item.name} (x${item.qty}) - ${itemTotal} ج.م%0a`;
+            
+            if (item.note && item.note !== '') {
+                msg += `   └ 💬 ${item.note}%0a`;
+            }
+        });
+
+        msg += `---------------------------%0a`;
+        msg += `💰 *الإجمالي:* ${total} ج.م%0a`;
+        msg += `---------------------------%0a`;
+        
+        // رابط الواتساب (اتأكد إن المتغير WA_NUMBER معرف في ملف JS، لو مش معرف اكتب رقمك هنا بدل المتغير)
+        // مثال: const myNumber = "2010xxxxxxxx";
+        // window.open(`https://wa.me/${myNumber}?text=${msg}`, '_blank');
+        
+        // لو المتغير موجود في الملف التاني هتقراه عادي:
+        if (typeof WA_NUMBER !== 'undefined') {
+            window.open(`https://wa.me/${WA_NUMBER}?text=${msg}`, '_blank');
+        } else {
+            alert("خطأ: رقم الواتساب غير معرف في الكود!");
+        }
+    }
+</script>
+</body>
+</html>
