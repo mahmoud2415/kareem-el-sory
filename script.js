@@ -113,12 +113,12 @@ function renderMainSections() {
 
     // ضبط حاوية الأزرار لتكون شبكة (2 بجانب بعض) لتناسب الموبايل وشكل المنيو
     // هذا السطر يضمن أن الأزرار تترتب بشكل جميل
-    container.className = "grid grid-cols-2 gap-3 p-2 w-full max-w-3xl mx-auto";
+    container.className = "grid grid-cols-2 sm:grid-cols-3 gap-4 p-2 w-full max-w-3xl mx-auto";
 
     const buttonsHTML = mainSections.map(section => `
         <button 
             onclick="selectSection('${section.id}')"
-            class="relative group w-full h-36 rounded-2xl overflow-hidden border-2 border-brand-dark hover:border-brand-gold transition-all duration-300 shadow-lg"
+            class="relative group w-32 h-32 sm:w-40 sm:h-40 mx-auto rounded-full overflow-hidden border-4 border-white ring-2 ring-brand-spice/30 hover:ring-brand-spice transition-all duration-300 shadow-lg"
         >
             <img 
                 src="${section.image}" 
@@ -150,7 +150,7 @@ function selectSection(sectionId) {
     let buttonsHTML = `
         <button 
             onclick="renderMainSections()"
-            class="flex flex-col items-center justify-center gap-1 p-2 rounded-xl bg-white border border-gray-200 text-gray-700 hover:bg-gray-100 transition-all min-w-[80px] h-[90px]"
+            class="flex flex-col items-center justify-center gap-1 p-2 w-24 h-24 sm:w-28 sm:h-28 mx-auto rounded-full bg-white border border-gray-200 text-gray-700 hover:bg-gray-100 transition-all shadow-sm"
         >
             <i class="fas fa-arrow-right text-xl"></i>
             <span class="font-bold text-[10px]">رجوع</span>
@@ -162,7 +162,7 @@ function selectSection(sectionId) {
         <button 
             onclick="filterCategory('${cat.id}')"
             id="btn-${cat.id}"
-            class="category-btn flex flex-col items-center justify-center gap-2 p-2 rounded-xl bg-white border border-gray-200 text-gray-700 hover:bg-brand-red hover:text-white hover:border-brand-red transition-all duration-300 group min-w-[90px] h-[90px]"
+            class="category-btn flex flex-col items-center justify-center gap-2 p-2 w-24 h-24 sm:w-28 sm:h-28 mx-auto rounded-full bg-white border border-gray-200 text-gray-700 hover:bg-brand-spice hover:text-white hover:border-brand-spice transition-all duration-300 shadow-sm group"
         >
             <i class="${cat.icon} text-2xl mb-1 group-hover:scale-110 transition-transform"></i>
             <span class="font-bold text-[10px] text-center leading-tight">${cat.name}</span>
@@ -182,10 +182,10 @@ function filterCategory(categoryId) {
     document.querySelectorAll('.category-btn').forEach(btn => {
         if(btn.id === `btn-${categoryId}`) {
             btn.classList.remove('bg-white', 'text-gray-700', 'border-gray-200');
-            btn.classList.add('bg-brand-red', 'text-white', 'border-brand-red', 'shadow-lg', 'scale-105');
+            btn.classList.add('bg-brand-spice', 'text-white', 'border-brand-spice', 'shadow-lg', 'scale-105');
         } else {
             btn.classList.add('bg-white', 'text-gray-700', 'border-gray-200');
-            btn.classList.remove('bg-brand-red', 'text-white', 'border-brand-red', 'shadow-lg', 'scale-105');
+            btn.classList.remove('bg-brand-spice', 'text-white', 'border-brand-spice', 'shadow-lg', 'scale-105');
         }
     });
 
@@ -220,7 +220,7 @@ function renderCategoryItems(items) {
         }
 
         return `
-            <div onclick='openOptionsModal(${JSON.stringify(item)})' class="cursor-pointer group relative bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-md flex flex-row h-32 md:h-auto md:flex-col hover:border-brand-red hover:shadow-lg transition-all duration-300 animate-fade-in-up">
+            <div onclick='openOptionsModal(${JSON.stringify(item)})' class="cursor-pointer group relative bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-md flex flex-row h-32 md:h-auto md:flex-col hover:border-brand-spice hover:shadow-lg transition-all duration-300 animate-fade-in-up">
                 
                 <div class="w-1/3 md:w-full md:h-48 relative overflow-hidden">
                     <img src="${item.image}" alt="${item.name}" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
@@ -229,14 +229,14 @@ function renderCategoryItems(items) {
                 
                 <div class="w-2/3 md:w-full p-4 flex flex-col justify-between relative z-10">
                     <div>
-                        <h3 class="font-bold text-gray-900 text-base md:text-xl mb-1 leading-tight group-hover:text-brand-red transition-colors">${item.name}</h3>
+                        <h3 class="font-bold text-gray-900 text-base md:text-xl mb-1 leading-tight group-hover:text-brand-spice transition-colors">${item.name}</h3>
                         <p class="text-xs md:text-sm text-gray-600 line-clamp-2">${item.desc || 'إضافة'}</p>
                     </div>
                     
                     <div class="flex justify-between items-center mt-3 border-t border-gray-100 pt-2">
                         <span class="text-brand-gold font-bold text-sm md:text-lg drop-shadow-sm">${priceDisplay} ج.م</span>
                         
-                        <div class="w-8 h-8 md:w-10 md:h-10 rounded-xl bg-brand-red text-white flex items-center justify-center shadow-lg group-hover:bg-white group-hover:text-brand-red transition-all transform group-hover:rotate-90">
+                        <div class="w-8 h-8 md:w-10 md:h-10 rounded-xl bg-brand-spice text-white flex items-center justify-center shadow-lg group-hover:bg-white group-hover:text-brand-spice transition-all transform group-hover:rotate-90">
                             <i class="fas fa-plus"></i>
                         </div>
                     </div>
@@ -266,12 +266,12 @@ function openOptionsModal(item) {
     if (item.sizes) {
         sizesSection.classList.remove('hidden');
         sizesContainer.innerHTML = item.sizes.map((size, index) => `
-            <label class="relative flex items-center justify-between bg-gray-50 p-4 rounded-xl cursor-pointer border border-gray-200 hover:border-brand-red/50 transition-all group overflow-hidden">
+            <label class="relative flex items-center justify-between bg-gray-50 p-4 rounded-xl cursor-pointer border border-gray-200 hover:border-brand-spice/50 transition-all group overflow-hidden">
                 <input type="radio" name="size_option" value="${index}" ${index === 0 ? 'checked' : ''} onchange="updateModalTotal()" class="peer sr-only">
-                <div class="absolute inset-0 bg-brand-red/10 opacity-0 peer-checked:opacity-100 transition-opacity"></div>
-                <div class="absolute left-0 top-0 bottom-0 w-1 bg-brand-red opacity-0 peer-checked:opacity-100 transition-opacity"></div>
+                <div class="absolute inset-0 bg-brand-spice/10 opacity-0 peer-checked:opacity-100 transition-opacity"></div>
+                <div class="absolute left-0 top-0 bottom-0 w-1 bg-brand-spice opacity-0 peer-checked:opacity-100 transition-opacity"></div>
                 <div class="flex items-center gap-3 relative z-10">
-                    <span class="text-gray-800 peer-checked:text-brand-red font-medium">${size.name}</span>
+                    <span class="text-gray-800 peer-checked:text-brand-spice font-medium">${size.name}</span>
                 </div>
                 <span class="text-brand-gold font-bold relative z-10">${size.price} ج.م</span>
             </label>
@@ -301,7 +301,7 @@ function openOptionsModal(item) {
         extrasContainer.innerHTML = currentProductExtras.map((extra, index) => `
             <label class="flex items-center justify-between bg-gray-50 p-3 rounded-lg cursor-pointer hover:bg-gray-100 border border-transparent hover:border-gray-200 transition-all">
                 <div class="flex items-center gap-3">
-                    <input type="checkbox" value="${index}" onchange="updateModalTotal()" class="w-5 h-5 rounded accent-brand-red border-gray-300">
+                    <input type="checkbox" value="${index}" onchange="updateModalTotal()" class="w-5 h-5 rounded accent-brand-spice border-gray-300">
                     <span class="text-gray-700 text-sm">${extra.name}</span>
                 </div>
                 <span class="text-brand-gold text-sm">+${extra.price} ج.م</span>
@@ -321,15 +321,15 @@ function openOptionsModal(item) {
     if (item.category !== 'extras') {
         spicySection.classList.remove('hidden');
         spicySection.innerHTML = `
-            <label class="flex items-center justify-between bg-red-50 p-3 rounded-lg border border-red-200 cursor-pointer hover:bg-red-100 transition-all">
+            <label class="flex items-center justify-between bg-amber-50 p-3 rounded-lg border border-amber-200 cursor-pointer hover:bg-amber-100 transition-all">
                 <div class="flex items-center gap-3">
-                    <input type="checkbox" id="spicy-check" class="w-5 h-5 rounded accent-red-600 border-red-300 cursor-pointer">
-                    <span class="text-red-800 font-bold flex items-center gap-2">
-                        <i class="fas fa-fire-alt text-red-500 animate-pulse"></i>
+                    <input type="checkbox" id="spicy-check" class="w-5 h-5 rounded accent-amber-700 border-amber-300 cursor-pointer">
+                    <span class="text-amber-900 font-bold flex items-center gap-2">
+                        <i class="fas fa-fire-alt text-amber-800 animate-pulse"></i>
                         عايزها سبايسي (مولعة)؟
                     </span>
                 </div>
-                <span class="text-xs text-red-700">مجاناً</span>
+                <span class="text-xs text-amber-900">مجاناً</span>
             </label>
         `;
     } else {
@@ -481,11 +481,11 @@ function updateCartUI() {
                     <div class="text-brand-gold text-xs">${item.price} ج.م</div>
                 </div>
                 <div class="flex items-center gap-2 bg-white border border-gray-200 rounded-lg p-1">
-                    <button onclick="changeQty(${index}, -1)" class="w-6 h-6 flex items-center justify-center text-red-600 hover:bg-gray-100 rounded transition-colors">-</button>
+                    <button onclick="changeQty(${index}, -1)" class="w-6 h-6 flex items-center justify-center text-brand-spice hover:bg-gray-100 rounded transition-colors">-</button>
                     <span class="text-sm font-bold w-4 text-center text-gray-800">${item.qty}</span>
                     <button onclick="changeQty(${index}, 1)" class="w-6 h-6 flex items-center justify-center text-green-600 hover:bg-gray-100 rounded transition-colors">+</button>
                 </div>
-                <button onclick="removeItem(${index})" class="text-gray-500 hover:text-red-500 transition-colors"><i class="fas fa-trash-alt"></i></button>
+                <button onclick="removeItem(${index})" class="text-gray-500 hover:text-amber-800 transition-colors"><i class="fas fa-trash-alt"></i></button>
             </div>
         `;
     }).join('');

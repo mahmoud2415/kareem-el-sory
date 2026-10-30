@@ -18,7 +18,7 @@ body {
 }
 
 :is(button, a, input, textarea):focus-visible {
-    outline: 3px solid #dc2626;
+    outline: 3px solid #a65e2e;
     outline-offset: 2px;
 }
 
