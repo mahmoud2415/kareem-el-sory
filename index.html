@@ -1,130 +1,229 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="أهلًا بك في مطعم كريم السوري. تعرّف علينا واستكشف الشاورما والكريب والوجبات واطلب بسهولة عبر واتساب.">
-    <title>مطعم كريم السوري | KAREEM AL-SOURI</title>
 
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'brand-spice': '#a65e2e',
-                        'brand-spice-hover': '#82451f',
-                        'brand-olive': '#68724f',
-                        'brand-dark': '#e5e7eb',
-                        'brand-gold': '#8a4b08',
-                    },
-                    fontFamily: { sans: ['Cairo', 'sans-serif'] }
-                }
-            }
-        }
-    </script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-</head>
+<html dir="rtl" lang="ar"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="description" content="تصفح منيو كريم السوري، اختر وجبتك وإضافاتها، وأرسل طلبك للمطعم عبر واتساب.">
+<title>مطعم كريم السوري | المنيو والطلبات</title>
+<!-- Cairo Font from Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="assets/site.css"/>
+<link rel="stylesheet" href="style.css"/>
+<!-- Tailwind Theme Configuration -->
 
-<body class="min-h-screen bg-gray-50 text-gray-800 antialiased">
-    <nav class="border-b border-gray-100 bg-white" aria-label="التنقل الرئيسي">
-        <div class="container mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3">
-            <a href="index.html" aria-current="page" class="text-lg font-black text-brand-spice">كريم السوري</a>
-            <div class="flex items-center gap-2 text-sm font-bold">
-                <a href="index.html" aria-current="page" class="rounded-full bg-amber-50 px-4 py-2 text-brand-spice">الرئيسية</a>
-                <a href="menu.html" class="rounded-full px-4 py-2 text-gray-600 transition hover:bg-amber-50 hover:text-brand-spice">المنيو والطلبات</a>
-            </div>
-        </div>
-    </nav>
-
-    <main>
-        <section class="container mx-auto grid max-w-6xl items-center gap-10 px-4 py-12 md:grid-cols-2 md:py-20">
-            <div class="order-2 space-y-6 text-center md:order-1 md:text-right">
-                <p class="font-bold text-brand-olive">أكل شهي.. وطلب أسهل</p>
-                <h1 class="text-4xl font-black leading-tight text-gray-900 sm:text-5xl">
-                    نكهة سورية<br>
-                    <span class="text-brand-spice">على مزاجك</span>
-                </h1>
-                <p class="mx-auto max-w-xl text-lg leading-8 text-gray-600 md:mx-0">
-                    أهلًا بك في مطعم كريم السوري. استكشف اختياراتنا من الشاورما والكريب والوجبات، خصّص طلبك، وابعته بسهولة عبر واتساب.
-                </p>
-                <div class="flex flex-col justify-center gap-3 sm:flex-row md:justify-start">
-                    <a href="menu.html" class="inline-flex items-center justify-center gap-2 rounded-full bg-brand-spice px-7 py-4 text-lg font-bold text-white shadow-lg transition hover:bg-brand-spice-hover">
-                        اكتشف المنيو <i class="fas fa-arrow-left" aria-hidden="true"></i>
-                    </a>
-                    <a href="tel:01043626462" class="inline-flex items-center justify-center gap-2 rounded-full border border-amber-200 bg-amber-50 px-7 py-4 font-bold text-gray-800 transition hover:bg-amber-100">
-                        اتصل بنا <i class="fas fa-phone-alt text-brand-olive" aria-hidden="true"></i>
-                    </a>
-                </div>
-            </div>
-
-            <div class="order-1 md:order-2">
-                <div class="mx-auto max-w-lg overflow-hidden rounded-[2rem] border-8 border-white bg-white shadow-xl ring-1 ring-gray-200">
-                    <img src="images/placeholder.jpg" alt="هوية مطعم كريم السوري" class="aspect-square w-full object-cover">
-                </div>
-            </div>
-        </section>
-
-        <section class="border-y border-amber-100 bg-amber-50/70">
-            <div class="container mx-auto max-w-6xl px-4 py-14">
-                <div class="mx-auto max-w-3xl text-center">
-                    <p class="mb-2 font-bold text-brand-olive">عن المطعم</p>
-                    <h2 class="mb-4 text-3xl font-black text-gray-900">أهلًا بك في كريم السوري</h2>
-                    <p class="text-lg leading-8 text-gray-700">
-                        نحب أن يكون اختيار وجبتك واضحًا ومريحًا؛ لذلك جمعنا لك في المنيو سندوتشات الشاورما والغربي، والكريب، والفتات والوجبات، مع إمكانية إضافة اختياراتك قبل إرسال الطلب.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <section class="container mx-auto max-w-6xl px-4 py-14">
-            <div class="mb-8 text-center">
-                <p class="mb-2 font-bold text-brand-olive">اختار اللي على مزاجك</p>
-                <h2 class="text-3xl font-black text-gray-900">منيو يناسب جوعك</h2>
-            </div>
-            <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-                <a href="menu.html?category=shawarma" class="rounded-2xl border border-gray-200 bg-white p-6 text-center shadow-sm transition hover:-translate-y-1 hover:border-brand-spice">
-                    <span class="mb-3 block text-3xl text-brand-spice"><i class="fas fa-utensils" aria-hidden="true"></i></span>
-                    <span class="font-bold text-gray-900">سندوتشات شاورما</span>
-                </a>
-                <a href="menu.html?category=crepe" class="rounded-2xl border border-gray-200 bg-white p-6 text-center shadow-sm transition hover:-translate-y-1 hover:border-brand-spice">
-                    <span class="mb-3 block text-3xl text-brand-spice"><i class="fas fa-bread-slice" aria-hidden="true"></i></span>
-                    <span class="font-bold text-gray-900">كريب وفتات</span>
-                </a>
-                <a href="menu.html?category=arabic" class="rounded-2xl border border-gray-200 bg-white p-6 text-center shadow-sm transition hover:-translate-y-1 hover:border-brand-spice">
-                    <span class="mb-3 block text-3xl text-brand-spice"><i class="fas fa-drumstick-bite" aria-hidden="true"></i></span>
-                    <span class="font-bold text-gray-900">وجبات عربي وغربي</span>
-                </a>
-                <a href="menu.html?category=extras" class="rounded-2xl border border-gray-200 bg-white p-6 text-center shadow-sm transition hover:-translate-y-1 hover:border-brand-spice">
-                    <span class="mb-3 block text-3xl text-brand-spice"><i class="fas fa-plus-circle" aria-hidden="true"></i></span>
-                    <span class="font-bold text-gray-900">إضافات متنوعة</span>
-                </a>
-            </div>
-        </section>
-
-        <section class="bg-gray-900 px-4 py-14 text-white">
-            <div class="container mx-auto flex max-w-6xl flex-col items-center justify-between gap-6 text-center md:flex-row md:text-right">
-                <div>
-                    <h2 class="text-3xl font-black">جاهز تختار وجبتك؟</h2>
-                    <p class="mt-2 text-gray-300">افتح المنيو، اختار إضافاتك، وأرسل طلبك عبر واتساب.</p>
-                </div>
-                <a href="menu.html" class="inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-brand-spice px-7 py-4 font-bold text-white transition hover:bg-brand-spice-hover">
-                    ابدأ الطلب <i class="fas fa-arrow-left" aria-hidden="true"></i>
-                </a>
-            </div>
-        </section>
-    </main>
-
-    <footer class="bg-white py-8">
-        <div class="container mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-4 text-sm text-gray-600 sm:flex-row">
-            <p>© 2026 مطعم كريم السوري</p>
-            <div class="flex items-center gap-5">
-                <a href="tel:01043626462" class="font-bold transition hover:text-brand-spice">010 43 62 64 62</a>
-                <a href="https://wa.me/201043626462" target="_blank" rel="noopener noreferrer" class="font-bold text-green-700 transition hover:text-green-800">واتساب الطلبات</a>
-            </div>
-        </div>
-    </footer>
-</body>
-</html>
+<style>
+    body {
+      font-family: 'Cairo', sans-serif;
+      background-color: #FAF8F5;
+      color: #1e1b19;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 20px;
+      line-height: 1;
+      display: inline-block;
+      text-transform: none;
+      letter-spacing: normal;
+      word-wrap: normal;
+      white-space: nowrap;
+      direction: ltr;
+    }
+    .hide-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .hide-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body id="top" class="bg-background text-on-background min-h-screen flex flex-col pb-32 selection:bg-primary-container selection:text-on-primary">
+<!-- TOP APP BAR (Shared Component JSON Implementation) -->
+<header class="bg-surface dark:bg-inverse-surface docked full-width top-0 sticky z-40 shadow-sm dark:shadow-none border-b border-outline-variant/30">
+<div class="flex justify-between items-center w-full px-4 py-3 max-w-7xl mx-auto">
+<!-- Leading Branding & Meta -->
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-primary-container text-on-primary flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-primary-fixed" data-icon="restaurant_menu">restaurant_menu</span>
+</div>
+<div>
+<span class="text-title-lg font-title-lg font-bold text-primary dark:text-inverse-primary block tracking-tight">كريم السوري | Kareem Al-Souri</span>
+<span class="text-label-sm font-label-sm text-secondary font-bold block">وجبات وسندوتشات بطابع سوري</span>
+</div>
+</div>
+<!-- Quick Action Connectors (Direct Phone & WhatsApp) -->
+<div class="flex items-center gap-2">
+<a class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-container hover:bg-surface-variant text-primary active:scale-95 transition-transform duration-150 border border-outline-variant/40" href="tel:01043626462" title="اتصال مباشر بالمطعم">
+<span class="material-symbols-outlined text-primary" data-icon="call">call</span>
+<span class="text-label-md font-label-md hidden sm:inline font-bold">010 43 62 64 62</span>
+</a>
+<a class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-secondary text-on-secondary active:scale-95 transition-transform duration-150 shadow-sm hover:opacity-95" href="https://wa.me/201043626462" rel="noopener noreferrer" target="_blank" title="طلب مباشر عبر واتساب">
+<span class="material-symbols-outlined text-on-secondary" data-icon="chat">chat</span>
+<span class="text-label-md font-label-md font-bold">واتساب</span>
+</a>
+</div>
+</div>
+</header>
+<!-- MAIN CANVAS -->
+<main class="w-full max-w-7xl mx-auto px-4 md:px-6 flex-1 mt-4">
+<!-- WELCOME & HERO SECTION (Tactile & Authentic, No False Tales) -->
+<section class="relative overflow-hidden rounded-2xl bg-surface-container-low border border-outline-variant/40 p-5 md:p-8 mb-8 shadow-sm">
+<div class="relative z-10 max-w-3xl">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary/10 text-secondary text-label-md font-label-md mb-3 border border-secondary/20">
+<span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+<span>أكل شهي وطلب سهل</span>
+</div>
+<h1 class="text-display-lg-mobile md:text-display-lg font-display-lg text-primary tracking-tight mb-3">
+          نكهة سورية على مزاجك
+        </h1>
+<p class="text-body-md md:text-body-lg font-body-md text-on-surface-variant mb-6 max-w-2xl leading-relaxed">
+          استكشف اختيارات كريم السوري من الشاورما والسندوتشات والكريب والوجبات، واختر إضافاتك قبل إرسال الطلب عبر واتساب.
+        </p>
+<!-- CTA & Quick Feature Chips -->
+<div class="flex flex-wrap items-center gap-4 mb-6">
+<a class="inline-flex items-center justify-center gap-2 h-13 px-8 rounded-xl bg-primary-container text-surface hover:bg-primary active:scale-98 transition-all font-title-md text-title-md font-bold shadow-md" href="#menu-catalog">
+<span>اكتشف المنيو واطلب الآن</span>
+<span class="material-symbols-outlined" data-icon="arrow_downward">arrow_downward</span>
+</a>
+<a class="inline-flex items-center justify-center gap-2 h-13 px-6 rounded-xl bg-surface-container-lowest border border-outline-variant text-primary font-title-md text-title-md font-bold hover:bg-surface-container transition-colors" href="https://wa.me/201043626462" rel="noopener noreferrer" target="_blank">
+<span class="material-symbols-outlined text-secondary" data-icon="shopping_cart">shopping_cart</span>
+<span>تواصل عبر الواتساب</span>
+</a>
+</div>
+<!-- Trust Badges Bar -->
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-4 border-t border-outline-variant/30 text-on-surface">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-secondary" data-icon="storefront">storefront</span>
+<span class="text-body-sm font-body-sm font-semibold">استلام من المطعم أو توصيل مباشر</span>
+</div>
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-secondary" data-icon="skillet">skillet</span>
+<span class="text-body-sm font-body-sm font-semibold">منيو واضح وأسعار محددة</span>
+</div>
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-secondary" data-icon="verified">verified</span>
+<span class="text-body-sm font-body-sm font-semibold">إضافات متنوعة حسب اختيارك</span>
+</div>
+</div>
+</div>
+<!-- Subtle Accent Deco Pill (Olive & Spice) -->
+<div class="absolute -left-12 -bottom-12 w-48 h-48 bg-primary/5 rounded-full blur-2xl pointer-events-none"></div>
+<div class="absolute -right-8 -top-8 w-40 h-40 bg-secondary/10 rounded-full blur-xl pointer-events-none"></div>
+</section>
+<!-- STICKY HORIZONTAL CATEGORIES BAR (Active Underline Style) -->
+<section class="sticky top-[61px] z-30 bg-surface/95 backdrop-blur-md pt-2 pb-3 mb-6 border-b border-outline-variant/30" id="menu-catalog">
+<div class="flex items-center justify-between mb-2">
+<span class="text-label-lg font-label-lg text-primary flex items-center gap-1.5">
+<span class="material-symbols-outlined text-secondary" data-icon="menu_book">menu_book</span>
+          أقسام المنيو
+        </span>
+<span class="text-body-sm font-body-sm text-on-surface-variant">مرر لاختيار القسم المطلوب</span>
+</div>
+<!-- Scrollable Text-Only Category List with Underlines -->
+<nav class="flex items-center gap-8 overflow-x-auto hide-scrollbar whitespace-nowrap px-1">
+<!-- Active: سندوتشات شاورما -->
+<a class="relative pb-2 font-bold text-title-md font-title-md text-primary transition-colors flex items-center gap-1.5" href="#shawarma-sandwiches">
+<span>سندوتشات شاورما</span>
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="absolute bottom-0 left-0 right-0 h-0.5 bg-primary-container rounded-full"></span>
+</a>
+<!-- Inactive items with subtle hover -->
+<a class="relative pb-2 text-title-md font-title-md text-on-surface-variant hover:text-primary transition-colors" href="#western-sandwiches">
+          سندوتشات الغربي
+        </a>
+<a class="relative pb-2 text-title-md font-title-md text-on-surface-variant hover:text-primary transition-colors" href="#crepes">
+          الكريبات
+        </a>
+<a class="relative pb-2 text-title-md font-title-md text-on-surface-variant hover:text-primary transition-colors" href="#fattah">
+          فتات الشاورما
+        </a>
+<a class="relative pb-2 text-title-md font-title-md text-on-surface-variant hover:text-primary transition-colors" href="#arabi">
+          العربي
+        </a>
+<a class="relative pb-2 text-title-md font-title-md text-on-surface-variant hover:text-primary transition-colors" href="#western-plates">
+          الغربي
+        </a>
+<a class="relative pb-2 text-title-md font-title-md text-on-surface-variant hover:text-primary transition-colors" href="#sides-additions">
+          الإضافات
+        </a>
+</nav>
+</section>
+<div id="menu-loading" class="mb-8 rounded-xl border border-outline-variant/40 bg-surface-container-lowest p-6 text-center text-on-surface-variant" role="status">جارٍ تحميل المنيو…</div>
+<noscript><p class="mb-8 rounded-xl border border-outline-variant/40 bg-surface-container-lowest p-4 text-on-surface-variant">فعّل JavaScript لعرض المنيو وإعداد الطلب، أو تواصل هاتفيًا مع المطعم.</p></noscript>
+<!-- DIRECT CONTACT & LOCATION FOOTNOTE -->
+<section id="contact-info" class="mb-10 bg-surface-container-low rounded-2xl p-6 border border-outline-variant/30 flex flex-col md:flex-row items-center justify-between gap-6">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-xl bg-secondary text-on-secondary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined" data-icon="pin_drop">pin_drop</span>
+</div>
+<div>
+<h4 class="text-title-lg font-title-lg text-primary font-bold">للطلب والاستفسار</h4>
+<p class="text-body-md font-body-md text-on-surface-variant">تواصل مع مطعم كريم السوري هاتفيًا أو عبر واتساب.</p>
+</div>
+</div>
+<div class="flex items-center gap-3 shrink-0">
+<a class="px-5 py-2.5 rounded-xl bg-primary-container text-on-primary font-bold text-label-lg font-label-lg flex items-center gap-2 hover:bg-primary active:scale-95 transition-all" href="tel:01043626462">
+<span class="material-symbols-outlined" data-icon="phone_in_talk">phone_in_talk</span>
+<span>010 43 62 64 62</span>
+</a>
+</div>
+</section>
+</main>
+<!-- FLOATING CART BAR -->
+<aside id="cart-summary" class="fixed bottom-16 md:bottom-6 left-0 right-0 z-40 max-w-lg mx-auto px-4 pointer-events-none hidden">
+<div class="pointer-events-auto bg-inverse-surface text-inverse-on-surface rounded-2xl p-3 shadow-2xl flex items-center justify-between border border-outline-variant/20 transition-transform active:scale-99">
+<!-- Cart summary stats -->
+<div class="flex items-center gap-3 pr-2">
+<div class="w-10 h-10 rounded-xl bg-primary-container text-surface flex items-center justify-center font-bold">
+<span class="material-symbols-outlined text-secondary-fixed" data-icon="shopping_bag">shopping_bag</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span id="cart-summary-count" class="text-label-md font-label-md font-bold text-secondary-fixed">0 صنف في السلة</span>
+<span class="w-1 h-1 rounded-full bg-outline"></span>
+<span class="text-body-sm font-body-sm text-surface-variant">طلب جاهز</span>
+</div>
+<div class="text-title-lg font-title-lg font-extrabold text-surface">
+            <span id="cart-summary-total">0</span> <span class="text-label-sm font-label-sm font-bold text-outline-variant">ج.م</span>
+</div>
+</div>
+</div>
+<!-- Action Button -->
+<a class="h-11 px-5 rounded-xl bg-secondary hover:bg-secondary/90 text-on-secondary active:scale-95 transition-all flex items-center gap-2 text-label-lg font-label-lg font-bold shadow-md" href="cart.html">
+<span>عرض السلة وإتمام الطلب</span>
+<span class="material-symbols-outlined" data-icon="chevron_left">chevron_left</span>
+</a>
+</div>
+</aside>
+<!-- BOTTOM NAVBAR (Shared Component JSON Implementation) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-2 bg-surface dark:bg-inverse-surface border-t border-outline-variant dark:border-outline shadow-lg dark:shadow-none">
+<!-- Item 0: الرئيسية -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-3 py-1 hover:bg-surface-container active:scale-95 transition-transform duration-150" href="#top">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="text-label-sm font-label-sm">الرئيسية</span>
+</a>
+<!-- Item 1: القائمة (ACTIVE ITEM - The user is exploring menu catalog) -->
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container dark:bg-primary dark:text-on-primary rounded-xl px-3 py-1 active:scale-95 transition-transform duration-150" href="#menu-catalog">
+<span class="material-symbols-outlined" data-icon="restaurant">restaurant</span>
+<span class="text-label-sm font-label-sm">القائمة</span>
+</a>
+<!-- Cart -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-3 py-1 hover:bg-surface-container active:scale-95 transition-transform duration-150 relative" href="cart.html">
+<span class="material-symbols-outlined" data-icon="shopping_bag">shopping_bag</span>
+<span class="text-label-sm font-label-sm">السلة</span>
+</a>
+</nav>
+<script src="script.js" defer></script>
+</body></html>

@@ -1,0 +1,13 @@
+{
+  "name": "kareem-al-souri-ordering",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build:css": "tailwindcss -i ./src/tailwind.css -o ./assets/site.css --minify",
+    "build": "npm run build:css",
+    "watch:css": "tailwindcss -i ./src/tailwind.css -o ./assets/site.css --watch"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.17"
+  }
+}

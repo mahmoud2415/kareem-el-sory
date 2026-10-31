@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="ar"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="description" content="راجع طلبك وحدد بيانات التوصيل أو الاستلام ثم أرسله إلى مطعم كريم السوري عبر واتساب.">
+<title>سلة الطلبات | مطعم كريم السوري</title>
+<!-- Cairo Font for Levantine Arabic Typography -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="assets/site.css"/>
+<link rel="stylesheet" href="style.css"/>
+
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+      font-size: 22px;
+      line-height: 1;
+      display: inline-block;
+      vertical-align: middle;
+    }
+    input:focus, textarea:focus {
+      outline: none !important;
+      box-shadow: 0 0 0 2px #78350f !important;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface antialiased font-body-md text-body-md selection:bg-tertiary-fixed selection:text-tertiary min-h-screen pb-32">
+<!-- Top App Bar (Transactional Screen with Back Navigation and Clear Cart) -->
+<header class="sticky top-0 z-40 bg-surface/95 backdrop-blur-md shadow-sm border-b border-outline-variant/40">
+<div class="max-w-xl mx-auto px-4 py-3 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<a aria-label="الرجوع للقائمة" class="w-10 h-10 rounded-full flex items-center justify-center text-primary hover:bg-surface-container active:scale-95 transition-all" href="index.html#menu-catalog">
+<span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</a>
+<div>
+<h1 class="text-headline-md font-headline-md text-primary leading-tight">سلة الطلبات</h1>
+<span id="cart-count" class="text-label-sm font-label-sm text-secondary bg-surface-container px-2 py-0.5 rounded-full inline-block">0 صنف</span>
+</div>
+</div>
+<!-- Clear Cart Action -->
+<button class="text-label-md font-label-md text-primary hover:bg-surface-container text-on-surface-variant active:scale-95 transition-all px-2.5 py-1.5 rounded-lg flex items-center gap-1 border border-outline-variant/60" type="button" onclick="clearCart()">
+<span class="material-symbols-outlined text-[18px]" data-icon="delete_sweep">delete_sweep</span>
+<span>إفراغ السلة</span>
+</button>
+</div>
+</header>
+<main class="max-w-xl mx-auto px-4 py-4 space-y-5">
+<!-- Culinary Trust Badge / Warm Syrian Hospitality Banner -->
+<div class="bg-surface-container-low rounded-xl p-3 flex items-center gap-3 border border-outline-variant/30">
+<div class="w-9 h-9 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px]" data-icon="verified">verified</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant leading-relaxed">
+        راجع أصنافك وكمياتها قبل إرسال الطلب إلى المطعم.
+      </p>
+</div>
+<!-- 1. Cart Items Bento Grid / Elevated Modern Cards -->
+<section class="space-y-3">
+<div class="flex items-center justify-between">
+<h2 class="text-title-md font-title-md text-primary flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary" data-icon="lunch_dining">lunch_dining</span>
+          الأصناف المطلوبة
+        </h2>
+<span class="text-body-sm font-body-sm text-on-surface-variant">مراجعة المحتويات</span>
+</div>
+<div id="cart-items" class="space-y-3"></div>
+<div id="empty-cart" class="rounded-xl border border-outline-variant/40 bg-surface-container-lowest p-6 text-center">
+<span class="material-symbols-outlined text-4xl text-secondary">shopping_cart</span>
+<p class="mt-2 font-bold text-primary">سلتك فارغة حاليًا</p>
+<a class="mt-4 inline-flex rounded-xl bg-primary-container px-4 py-2 font-bold text-surface" href="index.html#menu-catalog">تصفح المنيو الآن</a>
+</div>
+</section>
+<!-- 2. Delivery Method Toggle (Tabs) -->
+<section class="space-y-2">
+<label class="block text-title-md font-title-md text-primary flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary" data-icon="local_shipping">local_shipping</span>
+        طريقة الاستلام
+      </label>
+<div class="grid grid-cols-2 p-1.5 bg-surface-container rounded-xl gap-2 border border-outline-variant/30">
+<!-- Delivery Tab (Active) -->
+<button class="flex items-center justify-center gap-2.5 py-3 rounded-lg bg-primary-container text-surface shadow-sm font-label-lg text-label-lg transition-all" id="tab-delivery" aria-pressed="true" type="button">
+<span class="material-symbols-outlined" data-icon="moped" style="font-variation-settings: 'FILL' 1;">moped</span>
+<span>توصيل للمنزل</span>
+</button>
+<!-- Pickup Tab (Inactive) -->
+<button class="flex items-center justify-center gap-2.5 py-3 rounded-lg text-on-surface-variant hover:bg-surface font-label-lg text-label-lg transition-all" id="tab-pickup" aria-pressed="false" type="button">
+<span class="material-symbols-outlined" data-icon="storefront">storefront</span>
+<span>استلام من الفرع</span>
+</button>
+</div>
+</section>
+<!-- 3. Customer Details Form -->
+<section data-customer-form class="bg-surface-container-lowest rounded-xl p-4 border border-outline-variant/40 shadow-sm space-y-4">
+<div class="flex items-center justify-between border-b border-outline-variant/30 pb-2">
+<h2 class="text-title-md font-title-md text-primary flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary" data-icon="badge">badge</span>
+          بيانات العميل
+        </h2>
+<span class="text-label-sm font-label-sm text-secondary bg-surface-container px-2 py-0.5 rounded-full">خطوة أساسية</span>
+</div>
+<div class="space-y-3.5">
+<!-- Customer Name -->
+<div>
+<label class="block text-label-md font-label-md text-on-surface mb-1" for="cust-name">
+            الاسم بالكامل <span class="text-error">*</span>
+</label>
+<div class="relative">
+<span class="absolute inset-y-0 right-3 flex items-center pointer-events-none text-outline">
+<span class="material-symbols-outlined text-[20px]" data-icon="person">person</span>
+</span>
+<input class="w-full pr-10 pl-3 py-2.5 bg-surface-container-lowest border border-outline-variant rounded-lg text-body-md font-body-md text-on-surface focus:border-primary-container transition-colors" id="cust-name" placeholder="أدخل اسمك الكريم" required="" type="text"/>
+</div>
+</div>
+<!-- Phone Number -->
+<div>
+<label class="block text-label-md font-label-md text-on-surface mb-1" for="cust-phone">
+            رقم الهاتف للتواصل والواتساب <span class="text-error">*</span>
+</label>
+<div class="relative">
+<span class="absolute inset-y-0 right-3 flex items-center pointer-events-none text-outline">
+<span class="material-symbols-outlined text-[20px]" data-icon="phone_iphone">phone_iphone</span>
+</span>
+<input class="text-right w-full pr-10 pl-3 py-2.5 bg-surface-container-lowest border border-outline-variant rounded-lg text-body-md font-body-md text-on-surface focus:border-primary-container transition-colors" dir="ltr" id="cust-phone" autocomplete="tel" inputmode="tel" placeholder="010 0000 0000" required="" type="tel"/>
+</div>
+<p class="text-label-sm font-label-sm text-on-surface-variant mt-1">اكتب رقمًا يمكن للمطعم التواصل عليه.</p>
+</div>
+<!-- Delivery Detailed Address Container (Conditional) -->
+<div class="space-y-3 pt-1 border-t border-outline-variant/30" id="delivery-address-container">
+<div>
+<label class="block text-label-md font-label-md text-on-surface mb-1" for="cust-address">
+              عنوان التوصيل بالتفصيل <span class="text-error">*</span>
+</label>
+<div class="relative">
+<span class="absolute top-3 right-3 text-outline pointer-events-none">
+<span class="material-symbols-outlined text-[20px]" data-icon="location_on">location_on</span>
+</span>
+<textarea class="w-full pr-10 pl-3 py-2.5 bg-surface-container-lowest border border-outline-variant rounded-lg text-body-md font-body-md text-on-surface focus:border-primary-container transition-colors" id="cust-address" placeholder="المنطقة، اسم الشارع، وأقرب علامة مميزة" rows="2"></textarea>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-3">
+<div>
+<label class="block text-label-md font-label-md text-on-surface mb-1" for="building-num">رقم العمارة</label>
+<input class="w-full px-3 py-2 bg-surface-container-lowest border border-outline-variant rounded-lg text-body-md font-body-md text-on-surface focus:border-primary-container" id="building-num" placeholder="رقم العمارة" type="text"/>
+</div>
+<div>
+<label class="block text-label-md font-label-md text-on-surface mb-1" for="floor-flat">الدور والشقة</label>
+<input class="w-full px-3 py-2 bg-surface-container-lowest border border-outline-variant rounded-lg text-body-md font-body-md text-on-surface focus:border-primary-container" id="floor-flat" placeholder="الدور والشقة" type="text"/>
+</div>
+</div>
+</div>
+<!-- Additional Order Notes -->
+<div>
+<label class="block text-label-md font-label-md text-on-surface mb-1" for="order-notes">
+            ملاحظات إضافية على الطلب <span class="text-outline text-label-sm font-label-sm">(اختياري)</span>
+</label>
+<div class="relative">
+<span class="absolute top-3 right-3 text-outline pointer-events-none">
+<span class="material-symbols-outlined text-[20px]" data-icon="edit_note">edit_note</span>
+</span>
+<input class="w-full pr-10 pl-3 py-2.5 bg-surface-container-lowest border border-outline-variant rounded-lg text-body-md font-body-md text-on-surface focus:border-primary-container" id="order-notes" placeholder="خبز مقرمش زيادة، فصل الصوصات، بدون شطة..." type="text"/>
+</div>
+</div>
+</div>
+</section>
+<!-- 4. Order Financial Breakdown Summary -->
+<section class="bg-surface-container-lowest rounded-xl p-4 border border-outline-variant/40 shadow-sm space-y-3">
+<h2 class="text-title-md font-title-md text-primary flex items-center gap-2 border-b border-outline-variant/30 pb-2">
+<span class="material-symbols-outlined text-secondary" data-icon="receipt_long">receipt_long</span>
+        ملخص الحساب
+      </h2>
+<div class="space-y-2 text-body-md font-body-md">
+<div class="flex justify-between items-center text-on-surface-variant">
+<span>المجموع الفرعي (<span id="summary-count">0</span> صنف):</span>
+<span id="subtotal" class="font-title-md text-on-surface">0 ج.م</span>
+</div>
+<div class="flex justify-between items-start text-on-surface-variant gap-4">
+<span class="flex items-center gap-1 shrink-0">
+<span class="material-symbols-outlined text-[18px] text-tertiary" data-icon="two_wheeler">two_wheeler</span>
+            خدمة التوصيل:
+          </span>
+<span class="text-label-sm font-label-sm text-tertiary-container bg-surface-container px-2 py-0.5 rounded text-left">
+            رسوم التوصيل غير محسوبة في الإجمالي
+          </span>
+</div>
+<div class="pt-2 border-t border-dashed border-outline-variant flex justify-between items-center">
+<div>
+<span class="text-title-lg font-title-lg text-primary block leading-none">الإجمالي الحالي:</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant">رسوم التوصيل غير مشمولة إن وجدت</span>
+</div>
+<div class="text-right">
+<span id="order-total" class="text-display-lg-mobile font-display-lg-mobile text-primary-container leading-none">0</span>
+<span class="text-label-lg font-label-lg text-primary-container mr-1">ج.م</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Fast Reassurance Notice -->
+<div class="p-3 bg-surface-container-high rounded-xl flex items-center gap-3 border border-outline-variant/30 text-on-surface-variant text-body-sm font-body-sm">
+<span class="material-symbols-outlined text-secondary text-[24px]" data-icon="chat">chat</span>
+<p>ستفتح رسالة طلب جاهزة في واتساب لمراجعتها وإرسالها بنفسك إلى المطعم.</p>
+</div>
+<div id="checkout-error" class="hidden rounded-xl border border-error/30 bg-error-container/40 p-3 text-body-sm font-body-sm text-on-error-container" role="alert" aria-live="polite"></div>
+</main>
+<!-- Sticky Bottom Checkout Bar (High-Conversion Action Anchor) -->
+<div class="fixed bottom-0 left-0 right-0 z-50 bg-surface/95 backdrop-blur-md border-t border-outline-variant/30 shadow-[0_-8px_24px_-4px_rgba(69,26,3,0.12)] px-4 py-3">
+<div class="max-w-xl mx-auto flex items-center justify-between gap-3">
+<!-- Main WhatsApp Action Button -->
+<button id="submit-order" class="w-full bg-primary-container text-surface hover:bg-tertiary-container active:scale-[0.98] transition-all rounded-xl py-3.5 px-4 flex items-center justify-between shadow-lg" type="button" disabled>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[24px]" data-icon="send">send</span>
+<span class="font-label-lg text-label-lg text-surface">إرسال الطلب عبر واتساب</span>
+</div>
+<div class="flex items-center gap-1 bg-black/20 px-2.5 py-1 rounded-lg">
+<span id="submit-order-total" class="font-title-md text-title-md text-surface">0</span>
+<span class="text-label-sm font-label-sm text-surface">ج.م</span>
+</div>
+</button>
+</div>
+</div>
+<script src="script.js" defer></script>
+</body></html>

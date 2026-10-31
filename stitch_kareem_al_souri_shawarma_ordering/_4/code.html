@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="ar"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>سلة الطلبات وتفاصيل العميل | كريم السوري</title>
+<!-- Cairo Font for Levantine Arabic Typography -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "inverse-surface": "#33302d",
+            "error-container": "#ffdad6",
+            "secondary-container": "#b9f079",
+            "on-error-container": "#93000a",
+            "surface-container-low": "#faf2ee",
+            "on-secondary-container": "#416e00",
+            "surface-container-lowest": "#ffffff",
+            "tertiary-fixed": "#ffdcc0",
+            "on-tertiary-fixed-variant": "#6b3b00",
+            "surface": "#fff8f5",
+            "inverse-primary": "#ffb693",
+            "surface-dim": "#e0d8d5",
+            "tertiary-fixed-dim": "#ffb877",
+            "primary-fixed-dim": "#ffb693",
+            "secondary-fixed": "#bbf37c",
+            "outline-variant": "#dac1b7",
+            "tertiary-container": "#6e3c00",
+            "primary-fixed": "#ffdbcc",
+            "primary-container": "#78350f",
+            "on-primary-fixed-variant": "#76330d",
+            "inverse-on-surface": "#f7efeb",
+            "surface-container": "#f4ece8",
+            "surface-bright": "#fff8f5",
+            "outline": "#87736a",
+            "error": "#ba1a1a",
+            "background": "#fff8f5",
+            "secondary-fixed-dim": "#a0d663",
+            "on-primary-fixed": "#351000",
+            "on-background": "#1e1b19",
+            "surface-container-highest": "#e9e1dd",
+            "on-secondary": "#ffffff",
+            "on-secondary-fixed-variant": "#2e4f00",
+            "on-tertiary-fixed": "#2d1600",
+            "on-tertiary-container": "#f2a863",
+            "surface-container-high": "#eee7e3",
+            "on-tertiary": "#ffffff",
+            "tertiary": "#4e2900",
+            "primary": "#592100",
+            "on-surface": "#1e1b19",
+            "surface-tint": "#944a23",
+            "on-secondary-fixed": "#0f2000",
+            "secondary": "#3e6a00",
+            "surface-variant": "#e9e1dd",
+            "on-error": "#ffffff",
+            "on-primary": "#ffffff",
+            "on-primary-container": "#ffa072",
+            "on-surface-variant": "#54433c"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-xl": "2.5rem",
+            "space-md": "1rem",
+            "gutter-tablet": "1.25rem",
+            "gutter-desktop": "1.5rem",
+            "margin-tablet": "2rem",
+            "space-xs": "0.25rem",
+            "space-sm": "0.5rem",
+            "gutter": "1rem",
+            "margin": "1rem",
+            "space-lg": "1.5rem",
+            "margin-desktop": "3rem"
+          },
+          "fontFamily": {
+            "title-md": ["Cairo"],
+            "headline-lg-mobile": ["Cairo"],
+            "label-lg": ["Cairo"],
+            "headline-lg": ["Cairo"],
+            "body-sm": ["Cairo"],
+            "title-lg": ["Cairo"],
+            "body-lg": ["Cairo"],
+            "label-sm": ["Cairo"],
+            "headline-md": ["Cairo"],
+            "display-lg-mobile": ["Cairo"],
+            "display-lg": ["Cairo"],
+            "label-md": ["Cairo"],
+            "body-md": ["Cairo"]
+          },
+          "fontSize": {
+            "title-md": ["16px", { "lineHeight": "24px", "fontWeight": "600" }],
+            "headline-lg-mobile": ["22px", { "lineHeight": "32px", "fontWeight": "700" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "fontWeight": "700" }],
+            "headline-lg": ["28px", { "lineHeight": "38px", "fontWeight": "700" }],
+            "body-sm": ["12px", { "lineHeight": "18px", "fontWeight": "400" }],
+            "title-lg": ["18px", { "lineHeight": "26px", "fontWeight": "600" }],
+            "body-lg": ["16px", { "lineHeight": "26px", "fontWeight": "400" }],
+            "label-sm": ["10px", { "lineHeight": "14px", "fontWeight": "600" }],
+            "headline-md": ["20px", { "lineHeight": "28px", "fontWeight": "700" }],
+            "display-lg-mobile": ["28px", { "lineHeight": "38px", "fontWeight": "800" }],
+            "display-lg": ["36px", { "lineHeight": "48px", "fontWeight": "800" }],
+            "label-md": ["12px", { "lineHeight": "16px", "fontWeight": "600" }],
+            "body-md": ["14px", { "lineHeight": "22px", "fontWeight": "400" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+      font-size: 22px;
+      line-height: 1;
+      display: inline-block;
+      vertical-align: middle;
+    }
+    input:focus, textarea:focus {
+      outline: none !important;
+      box-shadow: 0 0 0 2px #78350f !important;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface antialiased font-body-md text-body-md selection:bg-tertiary-fixed selection:text-tertiary min-h-screen pb-32">
+<!-- Top App Bar (Transactional Screen with Back Navigation and Clear Cart) -->
+<header class="sticky top-0 z-40 bg-surface/95 backdrop-blur-md shadow-sm border-b border-outline-variant/40">
+<div class="max-w-xl mx-auto px-4 py-3 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<button aria-label="الرجوع للقائمة" class="w-10 h-10 rounded-full flex items-center justify-center text-primary hover:bg-surface-container active:scale-95 transition-all" type="button">
+<span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+<div>
+<h1 class="text-headline-md font-headline-md text-primary leading-tight">سلة الطلبات</h1>
+<span class="text-label-sm font-label-sm text-secondary bg-surface-container px-2 py-0.5 rounded-full inline-block">3 أصناف مختارة</span>
+</div>
+</div>
+<!-- Clear Cart Action -->
+<button class="text-label-md font-label-md text-primary hover:bg-surface-container text-on-surface-variant active:scale-95 transition-all px-2.5 py-1.5 rounded-lg flex items-center gap-1 border border-outline-variant/60" type="button">
+<span class="material-symbols-outlined text-[18px]" data-icon="delete_sweep">delete_sweep</span>
+<span>إفراغ السلة</span>
+</button>
+</div>
+</header>
+<main class="max-w-xl mx-auto px-4 py-4 space-y-5">
+<!-- Culinary Trust Badge / Warm Syrian Hospitality Banner -->
+<div class="bg-surface-container-low rounded-xl p-3 flex items-center gap-3 border border-outline-variant/30">
+<div class="w-9 h-9 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px]" data-icon="verified">verified</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant leading-relaxed">
+        خبز صاج سوري طازج ومطهو على الحطب مع تومية كريمية أصلية بتتبيلة الشام الأصيلة.
+      </p>
+</div>
+<!-- 1. Cart Items Bento Grid / Elevated Modern Cards -->
+<section class="space-y-3">
+<div class="flex items-center justify-between">
+<h2 class="text-title-md font-title-md text-primary flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary" data-icon="lunch_dining">lunch_dining</span>
+          الأصناف المطلوبة
+        </h2>
+<span class="text-body-sm font-body-sm text-on-surface-variant">مراجعة المحتويات</span>
+</div>
+<!-- Item 1: سوري XL -->
+<div class="bg-surface-container-lowest rounded-xl p-3.5 border border-outline-variant/40 shadow-sm flex flex-col gap-3 relative transition-all">
+<div class="flex gap-3 items-start">
+<div class="w-20 h-20 rounded-xl overflow-hidden shrink-0 border border-outline-variant/30 bg-surface-container">
+<img alt="سندوتش سوري XL" class="w-full h-full object-cover" data-alt="Authentic Syrian toasted chicken shawarma roll wrapped tightly in crisp golden saj bread with visible charred grill lines, garnished with creamy Damascus garlic toum, rich amber spices, and fresh Levantine pickles, professionally staged under soft warm appetizing restaurant light with a deep roasted palette." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDIFD9s9KmM9txO1ZwMhcp-g1osNmEhZmhbhh6TRw3MjdGRyGiYtGq1rLyofIcheIyOn6zvDDwmEeymP1aTT4g6DItkQURkkOIi-3aQSwHfIOQWlEHDC1Ir_-VbqQp2rGmiThSKyPonQ2IeE5XW_Bd2iJG5Sk8wQGbK6QqXZDUChZ1umc7zli0mmv_OjeX-A_pQolUi-4tIbmjFQkmxYUpqUXXYA8n-LL-NjNIu4PTp"/>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-start justify-between gap-1">
+<h3 class="text-title-md font-title-md text-on-surface truncate">سوري XL شاورما دجاج</h3>
+<span class="text-title-md font-title-md text-primary-container shrink-0">115 ج.م</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-0.5">الحجم العائلي 85 ج.م</p>
+<!-- Customizations Tags -->
+<div class="flex flex-wrap gap-1.5 mt-2">
+<span class="inline-flex items-center gap-1 text-label-sm font-label-sm bg-surface-container text-tertiary px-2 py-0.5 rounded-full border border-outline-variant/50">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary-container"></span>
+                تومية حارة (+15 ج.م)
+              </span>
+<span class="inline-flex items-center gap-1 text-label-sm font-label-sm bg-surface-container text-tertiary px-2 py-0.5 rounded-full border border-outline-variant/50">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary-container"></span>
+                صوص شيدر (+15 ج.م)
+              </span>
+</div>
+</div>
+</div>
+<div class="pt-2 border-t border-outline-variant/30 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<button class="text-label-md font-label-md text-secondary hover:text-on-secondary-container flex items-center gap-1 px-2 py-1 rounded-lg hover:bg-surface-container transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]" data-icon="tune">tune</span>
+              تعديل الإضافات
+            </button>
+<button aria-label="حذف الصنف" class="text-label-md font-label-md text-outline hover:text-error flex items-center gap-1 px-2 py-1 rounded-lg hover:bg-surface-container transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]" data-icon="delete">delete</span>
+              حذف
+            </button>
+</div>
+<!-- Quantity Stepper -->
+<div class="flex items-center bg-surface-container-low border border-outline-variant/60 rounded-full px-1.5 py-0.5 shadow-inner">
+<button aria-label="تقليل الكمية" class="w-7 h-7 rounded-full bg-surface-container-lowest text-primary flex items-center justify-center shadow-xs active:scale-90 transition-transform" type="button">
+<span class="material-symbols-outlined text-[16px]" data-icon="remove">remove</span>
+</button>
+<span class="w-8 text-center text-label-lg font-label-lg text-primary">1</span>
+<button aria-label="زيادة الكمية" class="w-7 h-7 rounded-full bg-primary-container text-surface-container-lowest flex items-center justify-center shadow-xs active:scale-90 transition-transform" type="button">
+<span class="material-symbols-outlined text-[16px]" data-icon="add">add</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Item 2: فتة شاورما وسط -->
+<div class="bg-surface-container-lowest rounded-xl p-3.5 border border-outline-variant/40 shadow-sm flex flex-col gap-3 relative transition-all">
+<div class="flex gap-3 items-start">
+<div class="w-20 h-20 rounded-xl overflow-hidden shrink-0 border border-outline-variant/30 bg-surface-container">
+<img alt="فتة شاورما دجاج" class="w-full h-full object-cover" data-alt="Traditional Syrian shawarma fattah bowl featuring seasoned aromatic yellow basmati rice topped with hand-carved crispy chicken shawarma, toasted golden crunchy Damascus saj bread croutons, drizzled with whipped garlic sauce and warm toasted almond slivers in a rustic ceramic dish." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDcvnJpzkL5aDFOsSzcLUvNi5zheCo_coybI1F7FhGC5PyV7BEakiiJ5ZM8cgymuG-UjCBfEiiCcVnu_dj5Y8qjfJwRDQFiYVSSC6kF27rF2EQXFWFYYnrNCYFca84GJ4q-FYa8p0PhYIb9vClOiPx_U_0yabQmKnsSZaFqI9YNAAfCdRae1I2cAN4KkiK6uvjclONQAFsHVqBfyYj_6I4llrj_DqfVUBGGZHCqhJlI"/>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-start justify-between gap-1">
+<h3 class="text-title-md font-title-md text-on-surface truncate">فتة شاورما (وسط)</h3>
+<span class="text-title-md font-title-md text-primary-container shrink-0">120 ج.م</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-0.5">أرز بسمتي فاخر + عيش مقرمش وتومية</p>
+<!-- Customizations Tags -->
+<div class="flex flex-wrap gap-1.5 mt-2">
+<span class="inline-flex items-center gap-1 text-label-sm font-label-sm bg-surface-container text-on-surface-variant px-2 py-0.5 rounded-full border border-outline-variant/40">
+<span class="material-symbols-outlined text-[14px]" data-icon="do_not_disturb_on">do_not_disturb_on</span>
+                بدون مخلل
+              </span>
+</div>
+</div>
+</div>
+<div class="pt-2 border-t border-outline-variant/30 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<button class="text-label-md font-label-md text-secondary hover:text-on-secondary-container flex items-center gap-1 px-2 py-1 rounded-lg hover:bg-surface-container transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]" data-icon="tune">tune</span>
+              تعديل
+            </button>
+<button aria-label="حذف الصنف" class="text-label-md font-label-md text-outline hover:text-error flex items-center gap-1 px-2 py-1 rounded-lg hover:bg-surface-container transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]" data-icon="delete">delete</span>
+              حذف
+            </button>
+</div>
+<!-- Quantity Stepper -->
+<div class="flex items-center bg-surface-container-low border border-outline-variant/60 rounded-full px-1.5 py-0.5 shadow-inner">
+<button aria-label="تقليل الكمية" class="w-7 h-7 rounded-full bg-surface-container-lowest text-primary flex items-center justify-center shadow-xs active:scale-90 transition-transform" type="button">
+<span class="material-symbols-outlined text-[16px]" data-icon="remove">remove</span>
+</button>
+<span class="w-8 text-center text-label-lg font-label-lg text-primary">1</span>
+<button aria-label="زيادة الكمية" class="w-7 h-7 rounded-full bg-primary-container text-surface-container-lowest flex items-center justify-center shadow-xs active:scale-90 transition-transform" type="button">
+<span class="material-symbols-outlined text-[16px]" data-icon="add">add</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Item 3: باكت بطاطس -->
+<div class="bg-surface-container-lowest rounded-xl p-3.5 border border-outline-variant/40 shadow-sm flex flex-col gap-3 relative transition-all">
+<div class="flex gap-3 items-start">
+<div class="w-20 h-20 rounded-xl overflow-hidden shrink-0 border border-outline-variant/30 bg-surface-container">
+<img alt="باكت بطاطس مقلية متبلة" class="w-full h-full object-cover" data-alt="Crispy golden French fries sprinkled with vibrant Syrian sumac and zaatar seasoning blend in an artisanal kraft paper container, accompanied by a small porcelain ramekin of rich garlic toum sauce, styled on a warm natural wood surface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmMYgo_3fNrk8ifjJmdWFSJmeuKwrtk2oU5CN2W1I6rP_FhlyD561IDdjWumDoiCpoUcq-vNZx6Um8opS6ahG3vsSv5nBDFTDmhvmI6-4mI1A62YmxcjZSyyoUO6RgTn9jh3DELq8HStRPmE3ek_nXY_kG7gRm6XI1iNisDFyatcpkE0jkjR0TsmLxXl_LAUGTtw63NAA5H1dWqzEBW_J8-kMYtin_w28IMYc73E2Q"/>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-start justify-between gap-1">
+<h3 class="text-title-md font-title-md text-on-surface truncate">باكت بطاطس بالتوابل</h3>
+<span class="text-title-md font-title-md text-primary-container shrink-0">25 ج.م</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-0.5">مقرمشة ببهارات كريم السوري الخاصة</p>
+</div>
+</div>
+<div class="pt-2 border-t border-outline-variant/30 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<button aria-label="حذف الصنف" class="text-label-md font-label-md text-outline hover:text-error flex items-center gap-1 px-2 py-1 rounded-lg hover:bg-surface-container transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]" data-icon="delete">delete</span>
+              حذف
+            </button>
+</div>
+<!-- Quantity Stepper -->
+<div class="flex items-center bg-surface-container-low border border-outline-variant/60 rounded-full px-1.5 py-0.5 shadow-inner">
+<button aria-label="تقليل الكمية" class="w-7 h-7 rounded-full bg-surface-container-lowest text-primary flex items-center justify-center shadow-xs active:scale-90 transition-transform" type="button">
+<span class="material-symbols-outlined text-[16px]" data-icon="remove">remove</span>
+</button>
+<span class="w-8 text-center text-label-lg font-label-lg text-primary">1</span>
+<button aria-label="زيادة الكمية" class="w-7 h-7 rounded-full bg-primary-container text-surface-container-lowest flex items-center justify-center shadow-xs active:scale-90 transition-transform" type="button">
+<span class="material-symbols-outlined text-[16px]" data-icon="add">add</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- 2. Delivery Method Toggle (Tabs) -->
+<section class="space-y-2">
+<label class="block text-title-md font-title-md text-primary flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary" data-icon="local_shipping">local_shipping</span>
+        طريقة الاستلام
+      </label>
+<div class="grid grid-cols-2 p-1.5 bg-surface-container rounded-xl gap-2 border border-outline-variant/30">
+<!-- Delivery Tab (Active) -->
+<button class="flex items-center justify-center gap-2.5 py-3 rounded-lg bg-primary-container text-on-surface-lowest text-surface shadow-sm font-label-lg text-label-lg transition-all" id="tab-delivery" onclick="switchOrderType('delivery')" type="button">
+<span class="material-symbols-outlined" data-icon="moped" style="font-variation-settings: 'FILL' 1;">moped</span>
+<span>توصيل للمنزل</span>
+</button>
+<!-- Pickup Tab (Inactive) -->
+<button class="flex items-center justify-center gap-2.5 py-3 rounded-lg text-on-surface-variant hover:bg-surface font-label-lg text-label-lg transition-all" id="tab-pickup" onclick="switchOrderType('pickup')" type="button">
+<span class="material-symbols-outlined" data-icon="storefront">storefront</span>
+<span>استلام من الفرع</span>
+</button>
+</div>
+</section>
+<!-- 3. Customer Details Form -->
+<section class="bg-surface-container-lowest rounded-xl p-4 border border-outline-variant/40 shadow-sm space-y-4">
+<div class="flex items-center justify-between border-b border-outline-variant/30 pb-2">
+<h2 class="text-title-md font-title-md text-primary flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary" data-icon="badge">badge</span>
+          بيانات العميل
+        </h2>
+<span class="text-label-sm font-label-sm text-secondary bg-surface-container px-2 py-0.5 rounded-full">خطوة أساسية</span>
+</div>
+<div class="space-y-3.5">
+<!-- Customer Name -->
+<div>
+<label class="block text-label-md font-label-md text-on-surface mb-1" for="cust-name">
+            الاسم بالكامل <span class="text-error">*</span>
+</label>
+<div class="relative">
+<span class="absolute inset-y-0 right-3 flex items-center pointer-events-none text-outline">
+<span class="material-symbols-outlined text-[20px]" data-icon="person">person</span>
+</span>
+<input class="w-full pr-10 pl-3 py-2.5 bg-surface-container-lowest border border-outline-variant rounded-lg text-body-md font-body-md text-on-surface focus:border-primary-container transition-colors" id="cust-name" placeholder="أدخل اسمك الكريم" required="" type="text"/>
+</div>
+</div>
+<!-- Phone Number -->
+<div>
+<label class="block text-label-md font-label-md text-on-surface mb-1" for="cust-phone">
+            رقم الهاتف للتواصل والواتساب <span class="text-error">*</span>
+</label>
+<div class="relative">
+<span class="absolute inset-y-0 right-3 flex items-center pointer-events-none text-outline">
+<span class="material-symbols-outlined text-[20px]" data-icon="phone_iphone">phone_iphone</span>
+</span>
+<input class="text-right w-full pr-10 pl-3 py-2.5 bg-surface-container-lowest border border-outline-variant rounded-lg text-body-md font-body-md text-on-surface focus:border-primary-container transition-colors" dir="ltr" id="cust-phone" placeholder="01012345678" required="" type="tel"/>
+</div>
+<p class="text-label-sm font-label-sm text-on-surface-variant mt-1">سيتم إرسال تفاصيل الفاتورة لتأكيدها على نفس الرقم</p>
+</div>
+<!-- Delivery Detailed Address Container (Conditional) -->
+<div class="space-y-3 pt-1 border-t border-outline-variant/30" id="delivery-address-container">
+<div>
+<label class="block text-label-md font-label-md text-on-surface mb-1" for="cust-address">
+              عنوان التوصيل بالتفصيل <span class="text-error">*</span>
+</label>
+<div class="relative">
+<span class="absolute top-3 right-3 text-outline pointer-events-none">
+<span class="material-symbols-outlined text-[20px]" data-icon="location_on">location_on</span>
+</span>
+<textarea class="w-full pr-10 pl-3 py-2.5 bg-surface-container-lowest border border-outline-variant rounded-lg text-body-md font-body-md text-on-surface focus:border-primary-container transition-colors" id="cust-address" placeholder="المنطقة، الشارع، علامة مميزة (مثال: الدقي - شارع مصدق بجوار صيدلية العزبي)" rows="2"></textarea>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-3">
+<div>
+<label class="block text-label-md font-label-md text-on-surface mb-1" for="building-num">رقم العمارة</label>
+<input class="w-full px-3 py-2 bg-surface-container-lowest border border-outline-variant rounded-lg text-body-md font-body-md text-on-surface focus:border-primary-container" id="building-num" placeholder="عمارة 14" type="text"/>
+</div>
+<div>
+<label class="block text-label-md font-label-md text-on-surface mb-1" for="floor-flat">الدور والشقة</label>
+<input class="w-full px-3 py-2 bg-surface-container-lowest border border-outline-variant rounded-lg text-body-md font-body-md text-on-surface focus:border-primary-container" id="floor-flat" placeholder="الدور 3 - شقة 7" type="text"/>
+</div>
+</div>
+</div>
+<!-- Additional Order Notes -->
+<div>
+<label class="block text-label-md font-label-md text-on-surface mb-1" for="order-notes">
+            ملاحظات إضافية على الطلب <span class="text-outline text-label-sm font-label-sm">(اختياري)</span>
+</label>
+<div class="relative">
+<span class="absolute top-3 right-3 text-outline pointer-events-none">
+<span class="material-symbols-outlined text-[20px]" data-icon="edit_note">edit_note</span>
+</span>
+<input class="w-full pr-10 pl-3 py-2.5 bg-surface-container-lowest border border-outline-variant rounded-lg text-body-md font-body-md text-on-surface focus:border-primary-container" id="order-notes" placeholder="خبز مقرمش زيادة، فصل الصوصات، بدون شطة..." type="text"/>
+</div>
+</div>
+</div>
+</section>
+<!-- 4. Order Financial Breakdown Summary -->
+<section class="bg-surface-container-lowest rounded-xl p-4 border border-outline-variant/40 shadow-sm space-y-3">
+<h2 class="text-title-md font-title-md text-primary flex items-center gap-2 border-b border-outline-variant/30 pb-2">
+<span class="material-symbols-outlined text-secondary" data-icon="receipt_long">receipt_long</span>
+        ملخص الحساب
+      </h2>
+<div class="space-y-2 text-body-md font-body-md">
+<div class="flex justify-between items-center text-on-surface-variant">
+<span>المجموع الفرعي (3 أصناف):</span>
+<span class="font-title-md text-on-surface">260 ج.م</span>
+</div>
+<div class="flex justify-between items-start text-on-surface-variant gap-4">
+<span class="flex items-center gap-1 shrink-0">
+<span class="material-symbols-outlined text-[18px] text-tertiary" data-icon="two_wheeler">two_wheeler</span>
+            خدمة التوصيل:
+          </span>
+<span class="text-label-sm font-label-sm text-tertiary-container bg-surface-container px-2 py-0.5 rounded text-left">
+            لم يتم التحديد (تؤكد هاتفياً / واتساب)
+          </span>
+</div>
+<div class="pt-2 border-t border-dashed border-outline-variant flex justify-between items-center">
+<div>
+<span class="text-title-lg font-title-lg text-primary block leading-none">الإجمالي الحالي:</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant">غير شامل مصاريف التوصيل بعد</span>
+</div>
+<div class="text-right">
+<span class="text-display-lg-mobile font-display-lg-mobile text-primary-container leading-none">260</span>
+<span class="text-label-lg font-label-lg text-primary-container mr-1">ج.م</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Fast Reassurance Notice -->
+<div class="p-3 bg-surface-container-high rounded-xl flex items-center gap-3 border border-outline-variant/30 text-on-surface-variant text-body-sm font-body-sm">
+<span class="material-symbols-outlined text-secondary text-[24px]" data-icon="chat">chat</span>
+<p>عند الضغط على المتابعة، سيتم تجهيز رسالة مهندمة تحتوي كامل تفاصيل طلبك وعنوانك لإرسالها مباشرة لإدارة الفرع عبر واتساب.</p>
+</div>
+</main>
+<!-- Sticky Bottom Checkout Bar (High-Conversion Action Anchor) -->
+<div class="fixed bottom-0 left-0 right-0 z-50 bg-surface/95 backdrop-blur-md border-t border-outline-variant/30 shadow-[0_-8px_24px_-4px_rgba(69,26,3,0.12)] px-4 py-3">
+<div class="max-w-xl mx-auto flex items-center justify-between gap-3">
+<!-- Main WhatsApp Action Button -->
+<a class="w-full bg-primary-container text-surface hover:bg-tertiary-container active:scale-[0.98] transition-all rounded-xl py-3.5 px-4 flex items-center justify-between shadow-lg" href="https://wa.me/201012345678?text=%D8%B7%D9%84%D8%A8%20%D8%AC%D8%AF%D9%8A%D8%AF%20%D9%85%D9%86%20%D9%83%D8%B1%D9%8A%D9%85%20%D8%A7%D9%84%D8%B3%D9%88%D8%B1%D9%8A" target="_blank">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[24px]" data-icon="send">send</span>
+<span class="font-label-lg text-label-lg text-surface">متابعة لتأكيد الطلب عبر واتساب</span>
+</div>
+<div class="flex items-center gap-1 bg-black/20 px-2.5 py-1 rounded-lg">
+<span class="font-title-md text-title-md text-surface">260</span>
+<span class="text-label-sm font-label-sm text-surface">ج.م</span>
+</div>
+</a>
+</div>
+</div>
+<!-- Interactive Logic for Delivery / Pickup Switch -->
+<script>
+    function switchOrderType(type) {
+      const deliveryBtn = document.getElementById('tab-delivery');
+      const pickupBtn = document.getElementById('tab-pickup');
+      const addressContainer = document.getElementById('delivery-address-container');
+
+      if (type === 'delivery') {
+        deliveryBtn.className = "flex items-center justify-center gap-2.5 py-3 rounded-lg bg-primary-container text-surface shadow-sm font-label-lg text-label-lg transition-all";
+        deliveryBtn.querySelector('.material-symbols-outlined').style.fontVariationSettings = "'FILL' 1";
+        
+        pickupBtn.className = "flex items-center justify-center gap-2.5 py-3 rounded-lg text-on-surface-variant hover:bg-surface font-label-lg text-label-lg transition-all";
+        pickupBtn.querySelector('.material-symbols-outlined').style.fontVariationSettings = "'FILL' 0";
+
+        addressContainer.classList.remove('hidden');
+      } else {
+        pickupBtn.className = "flex items-center justify-center gap-2.5 py-3 rounded-lg bg-primary-container text-surface shadow-sm font-label-lg text-label-lg transition-all";
+        pickupBtn.querySelector('.material-symbols-outlined').style.fontVariationSettings = "'FILL' 1";
+        
+        deliveryBtn.className = "flex items-center justify-center gap-2.5 py-3 rounded-lg text-on-surface-variant hover:bg-surface font-label-lg text-label-lg transition-all";
+        deliveryBtn.querySelector('.material-symbols-outlined').style.fontVariationSettings = "'FILL' 0";
+
+        addressContainer.classList.add('hidden');
+      }
+    }
+  </script>
+</body></html>

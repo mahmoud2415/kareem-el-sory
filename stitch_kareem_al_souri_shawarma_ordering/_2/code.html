@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+
+<html class="h-full" dir="rtl" lang="ar"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>تخصيص الوجبة | سوري XL - كريم السوري</title>
+<!-- Google Fonts: Cairo -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "inverse-surface": "#33302d",
+            "error-container": "#ffdad6",
+            "secondary-container": "#b9f079",
+            "on-error-container": "#93000a",
+            "surface-container-low": "#faf2ee",
+            "on-secondary-container": "#416e00",
+            "surface-container-lowest": "#ffffff",
+            "tertiary-fixed": "#ffdcc0",
+            "on-tertiary-fixed-variant": "#6b3b00",
+            "surface": "#fff8f5",
+            "inverse-primary": "#ffb693",
+            "surface-dim": "#e0d8d5",
+            "tertiary-fixed-dim": "#ffb877",
+            "primary-fixed-dim": "#ffb693",
+            "secondary-fixed": "#bbf37c",
+            "outline-variant": "#dac1b7",
+            "tertiary-container": "#6e3c00",
+            "primary-fixed": "#ffdbcc",
+            "primary-container": "#78350f",
+            "on-primary-fixed-variant": "#76330d",
+            "inverse-on-surface": "#f7efeb",
+            "surface-container": "#f4ece8",
+            "surface-bright": "#fff8f5",
+            "outline": "#87736a",
+            "error": "#ba1a1a",
+            "background": "#fff8f5",
+            "secondary-fixed-dim": "#a0d663",
+            "on-primary-fixed": "#351000",
+            "on-background": "#1e1b19",
+            "surface-container-highest": "#e9e1dd",
+            "on-secondary": "#ffffff",
+            "on-secondary-fixed-variant": "#2e4f00",
+            "on-tertiary-fixed": "#2d1600",
+            "on-tertiary-container": "#f2a863",
+            "surface-container-high": "#eee7e3",
+            "on-tertiary": "#ffffff",
+            "tertiary": "#4e2900",
+            "primary": "#592100",
+            "on-surface": "#1e1b19",
+            "surface-tint": "#944a23",
+            "on-secondary-fixed": "#0f2000",
+            "secondary": "#3e6a00",
+            "surface-variant": "#e9e1dd",
+            "on-error": "#ffffff",
+            "on-primary": "#ffffff",
+            "on-primary-container": "#ffa072",
+            "on-surface-variant": "#54433c"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-xl": "2.5rem",
+            "space-md": "1rem",
+            "gutter-tablet": "1.25rem",
+            "gutter-desktop": "1.5rem",
+            "margin-tablet": "2rem",
+            "space-xs": "0.25rem",
+            "space-sm": "0.5rem",
+            "gutter": "1rem",
+            "margin": "1rem",
+            "space-lg": "1.5rem",
+            "margin-desktop": "3rem"
+          },
+          "fontFamily": {
+            "title-md": ["Cairo"],
+            "headline-lg-mobile": ["Cairo"],
+            "label-lg": ["Cairo"],
+            "headline-lg": ["Cairo"],
+            "body-sm": ["Cairo"],
+            "title-lg": ["Cairo"],
+            "body-lg": ["Cairo"],
+            "label-sm": ["Cairo"],
+            "headline-md": ["Cairo"],
+            "display-lg-mobile": ["Cairo"],
+            "display-lg": ["Cairo"],
+            "label-md": ["Cairo"],
+            "body-md": ["Cairo"]
+          },
+          "fontSize": {
+            "title-md": ["16px", {"lineHeight": "24px", "fontWeight": "600"}],
+            "headline-lg-mobile": ["22px", {"lineHeight": "32px", "fontWeight": "700"}],
+            "label-lg": ["14px", {"lineHeight": "20px", "fontWeight": "700"}],
+            "headline-lg": ["28px", {"lineHeight": "38px", "fontWeight": "700"}],
+            "body-sm": ["12px", {"lineHeight": "18px", "fontWeight": "400"}],
+            "title-lg": ["18px", {"lineHeight": "26px", "fontWeight": "600"}],
+            "body-lg": ["16px", {"lineHeight": "26px", "fontWeight": "400"}],
+            "label-sm": ["10px", {"lineHeight": "14px", "fontWeight": "600"}],
+            "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "700"}],
+            "display-lg-mobile": ["28px", {"lineHeight": "38px", "fontWeight": "800"}],
+            "display-lg": ["36px", {"lineHeight": "48px", "fontWeight": "800"}],
+            "label-md": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+            "body-md": ["14px", {"lineHeight": "22px", "fontWeight": "400"}]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    /* Smooth custom scrollbars for bottom sheet */
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #faf2ee;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #dac1b7;
+      border-radius: 9999px;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body-md text-body-md antialiased min-h-screen relative overflow-hidden flex flex-col justify-end">
+<!-- ========================================== -->
+<!-- BACKGROUND MENU CANVAS (Contextual Underlay) -->
+<!-- ========================================== -->
+<div aria-hidden="true" class="fixed inset-0 z-0 overflow-y-auto filter blur-[2px] opacity-40 pointer-events-none select-none">
+<!-- Top Bar Mock from JSON context -->
+<header class="bg-surface docked full-width top-0 sticky z-40 border-b border-outline-variant shadow-sm px-4 py-3 max-w-7xl mx-auto flex justify-between items-center">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-2xl">restaurant_menu</span>
+<span class="text-title-lg font-title-lg font-bold text-primary">كريم السوري | Kareem Al-Souri</span>
+</div>
+<span class="material-symbols-outlined text-primary text-2xl">call</span>
+</header>
+<div class="max-w-4xl mx-auto p-4 space-y-4">
+<div class="h-32 rounded-xl bg-surface-container-high animate-pulse"></div>
+<div class="grid grid-cols-2 gap-4">
+<div class="h-44 rounded-xl bg-surface-container-highest"></div>
+<div class="h-44 rounded-xl bg-surface-container-highest"></div>
+</div>
+<div class="h-28 rounded-xl bg-surface-container"></div>
+</div>
+</div>
+<!-- Ambient Scrim Backdrop -->
+<div class="fixed inset-0 bg-[#1C1917] bg-opacity-60 backdrop-blur-sm z-30 transition-opacity duration-300"></div>
+<!-- ========================================== -->
+<!-- ITEM CUSTOMIZATION MODAL / BOTTOM SHEET     -->
+<!-- ========================================== -->
+<main class="relative z-40 w-full max-w-2xl mx-auto bg-surface-container-lowest rounded-t-[1.5rem] shadow-2xl flex flex-col max-h-[813px] border-t border-x border-outline-variant overflow-hidden animate-in slide-in-from-bottom duration-300">
+<!-- Drag Handle & Sticky Header Bar -->
+<div class="relative pt-3 pb-2 px-4 flex flex-col items-center bg-surface border-b border-outline-variant/60 flex-shrink-0">
+<!-- Ergonomic Drag Handle Pill -->
+<div class="w-10 h-1 rounded-full bg-outline-variant/80 mb-2"></div>
+<div class="w-full flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="flex items-center justify-center w-8 h-8 rounded-full bg-secondary/10 text-secondary">
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">restaurant</span>
+</span>
+<span class="text-title-md font-title-md text-primary">تخصيص وجبتك المختارة</span>
+</div>
+<!-- Dismiss Action Button -->
+<button aria-label="إغلاق النافذة" class="w-9 h-9 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant hover:bg-surface-variant active:scale-95 transition-all" type="button">
+<span class="material-symbols-outlined text-xl">close</span>
+</button>
+</div>
+</div>
+<!-- Scrollable Content Canvas -->
+<div class="overflow-y-auto px-4 py-4 space-y-6 flex-1 bg-surface-container-lowest pb-28">
+<!-- HERO FOOD CARD (Item Overview) -->
+<section class="bg-surface-container-low rounded-xl p-3 border border-outline-variant flex flex-col sm:flex-row gap-4 items-center">
+<!-- Close-up Shawarma Photography -->
+<div class="relative w-full sm:w-40 h-36 flex-shrink-0 rounded-lg overflow-hidden shadow-sm bg-surface-container-highest">
+<img class="w-full h-full object-cover" data-alt="A mouthwatering macro close-up of a toasted Syrian chicken shawarma roll cut diagonally, showing succulent seasoned sliced chicken, glossy creamy garlic toum sauce oozing out, crunchy green Damascus pickled cucumbers, wrapped in crisp golden charred saj flatbread with roasted spice aromas under warm ambient dining lights." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDDQokS6kCtpMi8kxX5Ezx2pHCRTMy_B824O48N9ZgeiPkyEjOmcZOj1X6n9_8QZzHH0SW3iIlTtLRfO_rE9-tBps1w23RGg6SYcxZkpJ_yosUdYnUNNNxN538YGHcMTCZ3lEeKLTZVeHVhPgSXxGRKg4QY-6PaZuaCTOUrsc7ifFaIWs7rXUyw1_a7t2j41rVRhzXjLEmw196wCysoHVilGC8hk6WEIjcp8N33qg52"/>
+<span class="absolute top-2 right-2 px-2 py-0.5 rounded-md bg-primary-container text-surface text-label-sm font-label-sm shadow">
+            الأكثر طلباً
+          </span>
+</div>
+<!-- Details & Price -->
+<div class="flex-1 w-full space-y-1.5 text-right">
+<div class="flex items-baseline justify-between gap-2">
+<h1 class="text-headline-md font-headline-md text-primary">سوري XL</h1>
+<div class="flex items-baseline gap-1">
+<span class="text-headline-md font-headline-md text-primary font-bold">85</span>
+<span class="text-label-md font-label-md text-on-surface-variant">ج.م</span>
+</div>
+</div>
+<p class="text-body-md font-body-md text-on-surface-variant leading-relaxed">
+            شاورما دجاج ممتازة غنية بتتبيلة دمشقية خاصة، تومية كريمية فاخرة، وخيار مخلل سوري مقرمش في خبز صاج محمص على الفحم بتسقية زيت زيتون شهية.
+          </p>
+<div class="pt-1 flex flex-wrap gap-2">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed-variant text-label-sm font-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+              خبز صاج دمشقي طازج
+            </span>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface-variant text-label-sm font-label-sm">
+<span class="material-symbols-outlined text-xs">local_fire_department</span>
+              تحميص مقرمش
+            </span>
+</div>
+</div>
+</section>
+<!-- ========================================== -->
+<!-- SECTION 1: الأساسيات والمحددات (Required / Options) -->
+<!-- ========================================== -->
+<!-- خيار الثومية -->
+<section class="space-y-3">
+<div class="flex items-center justify-between border-b border-outline-variant/40 pb-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-xl">oil_barrel</span>
+<h2 class="text-title-md font-title-md text-on-surface font-bold">نوع الثومية</h2>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed-variant text-label-sm font-label-sm">اختيار إجباري</span>
+</div>
+<div aria-label="نوع الثومية" class="grid grid-cols-1 sm:grid-cols-3 gap-2.5" role="radiogroup">
+<!-- Option 1: تومية عادية -->
+<label class="relative flex items-center justify-between p-3 rounded-xl border border-primary-container bg-surface-container-low cursor-pointer active:scale-98 transition-all hover:bg-surface-container">
+<div class="flex items-center gap-2.5">
+<input checked="" class="w-5 h-5 text-primary-container focus:ring-primary-container border-outline text-primary" name="toum_choice" type="radio" value="normal"/>
+<div class="flex flex-col">
+<span class="text-label-lg font-label-lg text-on-surface">تومية عادية</span>
+<span class="text-body-sm font-body-sm text-secondary font-medium">الخلطة الكلاسيكية (افتراضي)</span>
+</div>
+</div>
+<span class="text-label-md font-label-md text-on-surface-variant">مجاناً</span>
+</label>
+<!-- Option 2: تومية حارة -->
+<label class="relative flex items-center justify-between p-3 rounded-xl border border-outline-variant bg-surface-container-lowest cursor-pointer active:scale-98 transition-all hover:bg-surface-container-low">
+<div class="flex items-center gap-2.5">
+<input class="w-5 h-5 text-primary-container focus:ring-primary-container border-outline" name="toum_choice" type="radio" value="spicy"/>
+<div class="flex flex-col">
+<span class="text-label-lg font-label-lg text-on-surface">تومية حارة</span>
+<span class="text-body-sm font-body-sm text-on-surface-variant">مع شطة حلبية حارة</span>
+</div>
+</div>
+<span class="text-label-md font-label-md text-on-surface-variant">+0 ج.م</span>
+</label>
+<!-- Option 3: بدون تومية -->
+<label class="relative flex items-center justify-between p-3 rounded-xl border border-outline-variant bg-surface-container-lowest cursor-pointer active:scale-98 transition-all hover:bg-surface-container-low">
+<div class="flex items-center gap-2.5">
+<input class="w-5 h-5 text-primary-container focus:ring-primary-container border-outline" name="toum_choice" type="radio" value="none"/>
+<div class="flex flex-col">
+<span class="text-label-lg font-label-lg text-on-surface">بدون تومية</span>
+<span class="text-body-sm font-body-sm text-on-surface-variant">خفيف وجاف</span>
+</div>
+</div>
+<span class="text-label-md font-label-md text-on-surface-variant">مجاناً</span>
+</label>
+</div>
+</section>
+<!-- خيار المخلل -->
+<section class="space-y-3">
+<div class="flex items-center justify-between border-b border-outline-variant/40 pb-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-xl">eco</span>
+<h2 class="text-title-md font-title-md text-on-surface font-bold">الخيار المخلل السوري</h2>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed-variant text-label-sm font-label-sm">اختيار إجباري</span>
+</div>
+<div aria-label="خيارات المخلل" class="grid grid-cols-1 sm:grid-cols-3 gap-2.5" role="radiogroup">
+<!-- Option 1: مخلل عادي -->
+<label class="relative flex items-center justify-between p-3 rounded-xl border border-primary-container bg-surface-container-low cursor-pointer active:scale-98 transition-all hover:bg-surface-container">
+<div class="flex items-center gap-2.5">
+<input checked="" class="w-5 h-5 text-primary-container focus:ring-primary-container border-outline" name="pickles_choice" type="radio" value="normal"/>
+<span class="text-label-lg font-label-lg text-on-surface">مخلل عادي</span>
+</div>
+<span class="text-label-md font-label-md text-on-surface-variant">مجاناً</span>
+</label>
+<!-- Option 2: مخلل زيادة -->
+<label class="relative flex items-center justify-between p-3 rounded-xl border border-outline-variant bg-surface-container-lowest cursor-pointer active:scale-98 transition-all hover:bg-surface-container-low">
+<div class="flex items-center gap-2.5">
+<input class="w-5 h-5 text-primary-container focus:ring-primary-container border-outline" name="pickles_choice" type="radio" value="extra"/>
+<span class="text-label-lg font-label-lg text-on-surface">مخلل زيادة</span>
+</div>
+<span class="text-label-md font-label-md text-secondary font-medium">مجاناً</span>
+</label>
+<!-- Option 3: بدون مخلل -->
+<label class="relative flex items-center justify-between p-3 rounded-xl border border-outline-variant bg-surface-container-lowest cursor-pointer active:scale-98 transition-all hover:bg-surface-container-low">
+<div class="flex items-center gap-2.5">
+<input class="w-5 h-5 text-primary-container focus:ring-primary-container border-outline" name="pickles_choice" type="radio" value="none"/>
+<span class="text-label-lg font-label-lg text-on-surface">بدون مخلل</span>
+</div>
+<span class="text-label-md font-label-md text-on-surface-variant">مجاناً</span>
+</label>
+</div>
+</section>
+<!-- ========================================== -->
+<!-- SECTION 2: الإضافات الجانبية (Add-ons / Extras) -->
+<!-- ========================================== -->
+<section class="space-y-3">
+<div class="flex items-center justify-between border-b border-outline-variant/40 pb-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-xl">add_circle</span>
+<h2 class="text-title-md font-title-md text-on-surface font-bold">إضافات وتغميسات إضافية</h2>
+</div>
+<span class="text-body-sm font-body-sm text-on-surface-variant">اختياري حسب الرغبة</span>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="addonsContainer">
+<!-- تومية إضافية (+20 ج.م) - Checkbox active by default as an example -->
+<label class="flex items-center justify-between p-3 rounded-xl border border-primary-container bg-surface-container-low cursor-pointer transition-all hover:bg-surface-container addon-row">
+<div class="flex items-center gap-3">
+<input checked="" class="addon-checkbox w-5 h-5 rounded text-primary-container focus:ring-primary-container border-outline" data-price="20" type="checkbox"/>
+<div class="flex flex-col text-right">
+<span class="text-label-lg font-label-lg text-on-surface">تومية إضافية</span>
+<span class="text-body-sm font-body-sm text-on-surface-variant">عبوة تغميس بيضاء غنية</span>
+</div>
+</div>
+<span class="text-label-md font-label-md text-primary font-bold">+ 20 ج.م</span>
+</label>
+<!-- تومية حارة (+20 ج.م) -->
+<label class="flex items-center justify-between p-3 rounded-xl border border-outline-variant bg-surface-container-lowest cursor-pointer transition-all hover:bg-surface-container-low addon-row">
+<div class="flex items-center gap-3">
+<input class="addon-checkbox w-5 h-5 rounded text-primary-container focus:ring-primary-container border-outline" data-price="20" type="checkbox"/>
+<div class="flex flex-col text-right">
+<span class="text-label-lg font-label-lg text-on-surface">تومية حارة</span>
+<span class="text-body-sm font-body-sm text-on-surface-variant">عبوة تغميس حارة ومميزة</span>
+</div>
+</div>
+<span class="text-label-md font-label-md text-primary font-bold">+ 20 ج.م</span>
+</label>
+<!-- باكت بطاطس (+25 ج.م) -->
+<label class="flex items-center justify-between p-3 rounded-xl border border-outline-variant bg-surface-container-lowest cursor-pointer transition-all hover:bg-surface-container-low addon-row">
+<div class="flex items-center gap-3">
+<input class="addon-checkbox w-5 h-5 rounded text-primary-container focus:ring-primary-container border-outline" data-price="25" type="checkbox"/>
+<div class="flex flex-col text-right">
+<span class="text-label-lg font-label-lg text-on-surface">باكت بطاطس</span>
+<span class="text-body-sm font-body-sm text-on-surface-variant">مقرمشة مع بهارات الشاورما</span>
+</div>
+</div>
+<span class="text-label-md font-label-md text-primary font-bold">+ 25 ج.م</span>
+</label>
+<!-- صوص شيدر (+30 ج.م) -->
+<label class="flex items-center justify-between p-3 rounded-xl border border-outline-variant bg-surface-container-lowest cursor-pointer transition-all hover:bg-surface-container-low addon-row">
+<div class="flex items-center gap-3">
+<input class="addon-checkbox w-5 h-5 rounded text-primary-container focus:ring-primary-container border-outline" data-price="30" type="checkbox"/>
+<div class="flex flex-col text-right">
+<span class="text-label-lg font-label-lg text-on-surface">صوص شيدر</span>
+<span class="text-body-sm font-body-sm text-on-surface-variant">صوص جبنة كريمي دافئ</span>
+</div>
+</div>
+<span class="text-label-md font-label-md text-primary font-bold">+ 30 ج.م</span>
+</label>
+<!-- جبنة موزاريلا (+35 ج.م) -->
+<label class="flex items-center justify-between p-3 rounded-xl border border-outline-variant bg-surface-container-lowest cursor-pointer transition-all hover:bg-surface-container-low addon-row">
+<div class="flex items-center gap-3">
+<input class="addon-checkbox w-5 h-5 rounded text-primary-container focus:ring-primary-container border-outline" data-price="35" type="checkbox"/>
+<div class="flex flex-col text-right">
+<span class="text-label-lg font-label-lg text-on-surface">جبنة موزاريلا</span>
+<span class="text-body-sm font-body-sm text-on-surface-variant">تسيح داخل السندوتش مع الحرارة</span>
+</div>
+</div>
+<span class="text-label-md font-label-md text-primary font-bold">+ 35 ج.م</span>
+</label>
+<!-- كولسلو (+35 ج.م) -->
+<label class="flex items-center justify-between p-3 rounded-xl border border-outline-variant bg-surface-container-lowest cursor-pointer transition-all hover:bg-surface-container-low addon-row">
+<div class="flex items-center gap-3">
+<input class="addon-checkbox w-5 h-5 rounded text-primary-container focus:ring-primary-container border-outline" data-price="35" type="checkbox"/>
+<div class="flex flex-col text-right">
+<span class="text-label-lg font-label-lg text-on-surface">كولسلو</span>
+<span class="text-body-sm font-body-sm text-on-surface-variant">سلطة ملفوف باردة منعشة</span>
+</div>
+</div>
+<span class="text-label-md font-label-md text-primary font-bold">+ 35 ج.م</span>
+</label>
+<!-- بيبسي (+25 ج.م) -->
+<label class="flex items-center justify-between p-3 rounded-xl border border-outline-variant bg-surface-container-lowest cursor-pointer transition-all hover:bg-surface-container-low addon-row">
+<div class="flex items-center gap-3">
+<input class="addon-checkbox w-5 h-5 rounded text-primary-container focus:ring-primary-container border-outline" data-price="25" type="checkbox"/>
+<div class="flex flex-col text-right">
+<span class="text-label-lg font-label-lg text-on-surface">بيبسي</span>
+<span class="text-body-sm font-body-sm text-on-surface-variant">كانز 330 مل مثلج</span>
+</div>
+</div>
+<span class="text-label-md font-label-md text-primary font-bold">+ 25 ج.م</span>
+</label>
+<!-- مياه صغيرة (+10 ج.م) -->
+<label class="flex items-center justify-between p-3 rounded-xl border border-outline-variant bg-surface-container-lowest cursor-pointer transition-all hover:bg-surface-container-low addon-row">
+<div class="flex items-center gap-3">
+<input class="addon-checkbox w-5 h-5 rounded text-primary-container focus:ring-primary-container border-outline" data-price="10" type="checkbox"/>
+<div class="flex flex-col text-right">
+<span class="text-label-lg font-label-lg text-on-surface">مياه صغيرة</span>
+<span class="text-body-sm font-body-sm text-on-surface-variant">مياه معدنية 600 مل</span>
+</div>
+</div>
+<span class="text-label-md font-label-md text-primary font-bold">+ 10 ج.م</span>
+</label>
+</div>
+</section>
+<!-- ========================================== -->
+<!-- SECTION 3: ملاحظات خاصة للطلب -->
+<!-- ========================================== -->
+<section class="space-y-2">
+<label class="flex items-center gap-2 text-title-md font-title-md text-on-surface font-bold" for="orderNotes">
+<span class="material-symbols-outlined text-primary text-xl">edit_note</span>
+          أي ملاحظات إضافية للكابتن؟
+        </label>
+<div class="relative">
+<textarea class="w-full rounded-xl bg-surface-container-lowest border border-outline-variant p-3 text-body-md font-body-md text-on-surface placeholder:text-outline focus:ring-2 focus:ring-primary-container focus:border-primary-container focus:outline-none transition-all" id="orderNotes" placeholder="مثلاً: تحميص زيادة للخبز، تقطيع السندوتش قطع صغيرة..." rows="2"></textarea>
+</div>
+</section>
+<!-- ========================================== -->
+<!-- SECTION 4: عداد الكمية التفاعلي -->
+<!-- ========================================== -->
+<section class="bg-surface-container-low rounded-xl p-4 border border-outline-variant flex items-center justify-between">
+<div class="flex flex-col text-right">
+<span class="text-title-md font-title-md text-on-surface font-bold">عدد السندوتشات</span>
+<span class="text-body-sm font-body-sm text-on-surface-variant">حدد الكمية المطلوبة بنفس التخصيص</span>
+</div>
+<!-- Quantity Stepper Component -->
+<div class="flex items-center bg-surface-container-lowest border border-outline-variant rounded-full p-1 shadow-sm">
+<button aria-label="تقليل الكمية" class="w-10 h-10 rounded-full flex items-center justify-center text-primary hover:bg-surface-container active:scale-95 transition-all disabled:opacity-40 disabled:cursor-not-allowed" id="btnDecrease" type="button">
+<span class="material-symbols-outlined text-xl">remove</span>
+</button>
+<span class="w-12 text-center text-headline-md font-headline-md text-primary font-bold select-none" id="quantityDisplay">
+            1
+          </span>
+<button aria-label="زيادة الكمية" class="w-10 h-10 rounded-full bg-primary-container text-surface flex items-center justify-center hover:bg-primary active:scale-95 transition-all shadow-sm" id="btnIncrease" type="button">
+<span class="material-symbols-outlined text-xl">add</span>
+</button>
+</div>
+</section>
+</div>
+<!-- ========================================== -->
+<!-- STICKY ACTION FOOTER BAR (Pinned Checkout Pill) -->
+<!-- ========================================== -->
+<div class="sticky bottom-0 left-0 right-0 bg-surface border-t border-outline-variant p-4 flex items-center gap-3 z-50 shadow-[0_-8px_24px_-4px_rgba(69,26,3,0.12)]">
+<!-- Ghost Dismiss Button -->
+<button class="h-12 px-5 rounded-xl border border-outline-variant text-primary font-label-lg hover:bg-surface-container active:scale-95 transition-all flex items-center justify-center" type="button">
+        إلغاء
+      </button>
+<!-- Primary Big Action Button -->
+<button class="flex-1 h-12 rounded-xl bg-primary-container text-surface font-title-md font-bold flex items-center justify-between px-5 shadow-lg shadow-primary-container/20 hover:bg-primary active:scale-[0.98] transition-all" id="btnAddToCart" type="button">
+<span class="flex items-center gap-2">
+<span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">shopping_bag</span>
+<span>إضافة إلى السلة</span>
+</span>
+<!-- Dynamic Calculated Price Badge -->
+<div class="flex items-center gap-1 bg-black/20 py-1 px-3 rounded-lg text-surface">
+<span class="text-title-md font-title-md font-bold" id="totalPriceDisplay">105</span>
+<span class="text-label-sm font-label-sm">ج.م</span>
+</div>
+</button>
+</div>
+</main>
+<!-- Lightweight Micro-Interactions Script for Price & Selection Calculation -->
+<script>
+    (function() {
+      const BASE_PRICE = 85;
+      let quantity = 1;
+      
+      const quantityDisplay = document.getElementById('quantityDisplay');
+      const btnDecrease = document.getElementById('btnDecrease');
+      const btnIncrease = document.getElementById('btnIncrease');
+      const totalPriceDisplay = document.getElementById('totalPriceDisplay');
+      const checkboxes = document.querySelectorAll('.addon-checkbox');
+
+      function calculateTotal() {
+        let addonsTotal = 0;
+        checkboxes.forEach(cb => {
+          const row = cb.closest('.addon-row');
+          if (cb.checked) {
+            addonsTotal += parseInt(cb.dataset.price, 10) || 0;
+            if (row) {
+              row.classList.add('border-primary-container', 'bg-surface-container-low');
+              row.classList.remove('border-outline-variant', 'bg-surface-container-lowest');
+            }
+          } else {
+            if (row) {
+              row.classList.remove('border-primary-container', 'bg-surface-container-low');
+              row.classList.add('border-outline-variant', 'bg-surface-container-lowest');
+            }
+          }
+        });
+
+        const singleItemPrice = BASE_PRICE + addonsTotal;
+        const finalPrice = singleItemPrice * quantity;
+        totalPriceDisplay.textContent = finalPrice;
+      }
+
+      btnIncrease.addEventListener('click', () => {
+        quantity++;
+        quantityDisplay.textContent = quantity;
+        btnDecrease.disabled = false;
+        calculateTotal();
+      });
+
+      btnDecrease.addEventListener('click', () => {
+        if (quantity > 1) {
+          quantity--;
+          quantityDisplay.textContent = quantity;
+          if (quantity === 1) {
+            btnDecrease.disabled = true;
+          }
+          calculateTotal();
+        }
+      });
+
+      checkboxes.forEach(cb => {
+        cb.addEventListener('change', calculateTotal);
+      });
+
+      // Initial state
+      if (quantity === 1) {
+        btnDecrease.disabled = true;
+      }
+      calculateTotal();
+    })();
+  </script>
+</body></html>
