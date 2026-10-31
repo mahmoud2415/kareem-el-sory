@@ -77,50 +77,31 @@
 </div>
 </header>
 <!-- MAIN CANVAS -->
-<main class="w-full max-w-7xl mx-auto px-4 md:px-6 flex-1 mt-4">
-<!-- WELCOME & HERO SECTION (Tactile & Authentic, No False Tales) -->
-<section class="relative overflow-hidden rounded-2xl bg-surface-container-low border border-outline-variant/40 p-5 md:p-8 mb-8 shadow-sm">
-<div class="relative z-10 max-w-3xl">
-<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary/10 text-secondary text-label-md font-label-md mb-3 border border-secondary/20">
-<span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
-<span>أكل شهي وطلب سهل</span>
-</div>
-<h1 class="text-display-lg-mobile md:text-display-lg font-display-lg text-primary tracking-tight mb-3">
-          نكهة سورية على مزاجك
-        </h1>
-<p class="text-body-md md:text-body-lg font-body-md text-on-surface-variant mb-6 max-w-2xl leading-relaxed">
-          استكشف اختيارات كريم السوري من الشاورما والسندوتشات والكريب والوجبات، واختر إضافاتك قبل إرسال الطلب عبر واتساب.
+<main class="w-full max-w-7xl mx-auto px-4 md:px-6 flex-1">
+<section class="home-hero" aria-labelledby="home-hero-title">
+<img class="home-hero__image" src="assets/food/shawarma-large.jpg" alt="سندوتشات شاورما سورية مع البطاطس والصلصات" fetchpriority="high"/>
+<div class="home-hero__content">
+<p class="home-hero__eyebrow">كريم السوري <span aria-hidden="true">•</span> وجبات بطابع سوري</p>
+<h1 id="home-hero-title" class="home-hero__title">نكهة سورية على مزاجك</h1>
+<p class="home-hero__description">
+          شاورما وسندوتشات ووجبات شهية، اختار اللي تحبه من المنيو واطلب بسهولة.
         </p>
-<!-- CTA & Quick Feature Chips -->
-<div class="flex flex-wrap items-center gap-4 mb-6">
-<a class="inline-flex items-center justify-center gap-2 h-13 px-8 rounded-xl bg-primary-container text-surface hover:bg-primary active:scale-98 transition-all font-title-md text-title-md font-bold shadow-md" href="#menu-catalog">
+<div class="home-hero__actions">
+<a class="home-hero__button home-hero__button--primary" href="#menu-catalog">
 <span>اكتشف المنيو واطلب الآن</span>
-<span class="material-symbols-outlined" data-icon="arrow_downward">arrow_downward</span>
+<span class="material-symbols-outlined" aria-hidden="true">arrow_downward</span>
 </a>
-<a class="inline-flex items-center justify-center gap-2 h-13 px-6 rounded-xl bg-surface-container-lowest border border-outline-variant text-primary font-title-md text-title-md font-bold hover:bg-surface-container transition-colors" href="https://wa.me/201043626462" rel="noopener noreferrer" target="_blank">
-<span class="material-symbols-outlined text-secondary" data-icon="shopping_cart">shopping_cart</span>
-<span>تواصل عبر الواتساب</span>
+<a class="home-hero__button home-hero__button--secondary" href="https://wa.me/201043626462" rel="noopener noreferrer" target="_blank">
+<span class="material-symbols-outlined" aria-hidden="true">chat</span>
+<span>اطلب عبر واتساب</span>
 </a>
 </div>
-<!-- Trust Badges Bar -->
-<div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-4 border-t border-outline-variant/30 text-on-surface">
-<div class="flex items-center gap-2.5">
-<span class="material-symbols-outlined text-secondary" data-icon="storefront">storefront</span>
-<span class="text-body-sm font-body-sm font-semibold">استلام من المطعم أو توصيل مباشر</span>
+<ul class="home-hero__highlights" aria-label="مميزات الطلب">
+<li>طلب سهل وواضح</li>
+<li>استلام أو توصيل</li>
+<li>إضافات على اختيارك</li>
+</ul>
 </div>
-<div class="flex items-center gap-2.5">
-<span class="material-symbols-outlined text-secondary" data-icon="skillet">skillet</span>
-<span class="text-body-sm font-body-sm font-semibold">منيو واضح وأسعار محددة</span>
-</div>
-<div class="flex items-center gap-2.5">
-<span class="material-symbols-outlined text-secondary" data-icon="verified">verified</span>
-<span class="text-body-sm font-body-sm font-semibold">إضافات متنوعة حسب اختيارك</span>
-</div>
-</div>
-</div>
-<!-- Subtle Accent Deco Pill (Olive & Spice) -->
-<div class="absolute -left-12 -bottom-12 w-48 h-48 bg-primary/5 rounded-full blur-2xl pointer-events-none"></div>
-<div class="absolute -right-8 -top-8 w-40 h-40 bg-secondary/10 rounded-full blur-xl pointer-events-none"></div>
 </section>
 <!-- STICKY HORIZONTAL CATEGORIES BAR (Active Underline Style) -->
 <section class="sticky top-[61px] z-30 bg-surface/95 backdrop-blur-md pt-2 pb-3 mb-6 border-b border-outline-variant/30" id="menu-catalog">
