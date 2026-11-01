@@ -97,12 +97,8 @@ function formatPrice(value) {
 }
 
 function renderProductImage(image, alt, imageClass) {
-    return `
-        ${image ? `<img class="${imageClass}" src="${image}" alt="${escapeHtml(alt)}" loading="lazy" decoding="async" onerror="this.hidden=true;this.nextElementSibling.hidden=false">` : ''}
-        <span class="${image ? 'hidden' : ''} absolute inset-0 flex items-center justify-center" aria-hidden="true">
-            <span class="material-symbols-outlined text-3xl text-secondary/60">restaurant</span>
-        </span>
-    `;
+    if (!image) return '';
+    return `<img class="${imageClass}" src="${image}" alt="${escapeHtml(alt)}" loading="lazy" decoding="async" onerror="this.parentElement.hidden=true">`;
 }
 
 function parsePrice(value) {
@@ -190,9 +186,7 @@ function renderProductCard(item) {
     const image = productImages[item.id];
     return `
         <article class="bg-surface-container-lowest border border-outline-variant/40 rounded-2xl p-4 flex flex-col sm:flex-row gap-4 hover:shadow-md transition-shadow">
-            <div class="w-full sm:w-40 h-40 rounded-xl overflow-hidden relative shrink-0 bg-surface-container">
-                ${renderProductImage(image, item.name, 'absolute inset-0 h-full w-full object-cover')}
-            </div>
+            ${image ? `<div class="w-full sm:w-40 h-40 rounded-xl overflow-hidden relative shrink-0 bg-surface-container">${renderProductImage(image, item.name, 'absolute inset-0 h-full w-full object-cover')}</div>` : ''}
             <div class="flex-1 flex flex-col justify-between min-w-0">
                 <div>
                     <div class="flex items-start justify-between gap-2 mb-1">
@@ -303,8 +297,7 @@ function ensureProductModal() {
             </header>
             <div class="overflow-y-auto p-4 sm:p-6">
                 <div class="mb-5 rounded-2xl border border-outline-variant/40 bg-surface-container-low p-4">
-                    <div id="modal-product-image" class="relative mb-4 h-48 w-full overflow-hidden rounded-xl bg-surface-container">
-                        ${renderProductImage(null, '', 'absolute inset-0 h-full w-full object-cover')}
+                    <div id="modal-product-image" class="relative mb-4 h-48 w-full overflow-hidden rounded-xl bg-surface-container" hidden>
                     </div>
                     <div class="flex items-start justify-between gap-3">
                         <div>
@@ -357,11 +350,9 @@ function openProductModal(productId, lineId = null) {
     document.getElementById('modal-product-description').textContent = activeProduct.desc;
     document.getElementById('modal-product-price').textContent = formatPrice(activeProduct.price);
     const image = productImages[activeProduct.id];
-    document.getElementById('modal-product-image').innerHTML = renderProductImage(
-        image,
-        activeProduct.name,
-        'absolute inset-0 h-full w-full object-cover',
-    );
+    const productImage = document.getElementById('modal-product-image');
+    productImage.hidden = !image;
+    productImage.innerHTML = renderProductImage(image, activeProduct.name, 'absolute inset-0 h-full w-full object-cover');
     document.getElementById('modal-note').value = existing?.note || '';
     document.getElementById('modal-addons').innerHTML = addons.map((addon, index) => `
         <label class="flex cursor-pointer items-center justify-between gap-3 rounded-xl border border-outline-variant bg-surface-container-lowest p-3 transition hover:bg-surface-container-low">
@@ -460,9 +451,7 @@ function renderCart() {
         return `
             <article class="flex flex-col gap-3 rounded-xl border border-outline-variant/40 bg-surface-container-lowest p-3.5 shadow-sm">
                 <div class="flex items-start gap-3">
-                    <div class="relative h-20 w-20 shrink-0 overflow-hidden rounded-xl border border-outline-variant/30 bg-surface-container">
-                        ${renderProductImage(image, line.name, 'absolute inset-0 h-full w-full object-cover')}
-                    </div>
+                    ${image ? `<div class="relative h-20 w-20 shrink-0 overflow-hidden rounded-xl border border-outline-variant/30 bg-surface-container">${renderProductImage(image, line.name, 'absolute inset-0 h-full w-full object-cover')}</div>` : ''}
                     <div class="min-w-0 flex-1">
                         <div class="flex items-start justify-between gap-2">
                             <h3 class="truncate font-bold text-on-surface">${escapeHtml(line.name)}</h3>
