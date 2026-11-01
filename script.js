@@ -1,6 +1,5 @@
 const WHATSAPP_NUMBER = '201043626462';
 const CART_STORAGE_KEY = 'kareem-cart';
-const PLACEHOLDER_IMAGE = 'images/placeholder.jpg';
 
 const categories = [
     { id: 'shawarma', name: 'سندوتشات شاورما', anchor: 'shawarma-sandwiches' },
@@ -97,6 +96,15 @@ function formatPrice(value) {
     return `${Number(value) || 0} ج.م`;
 }
 
+function renderProductImage(image, alt, imageClass) {
+    return `
+        ${image ? `<img class="${imageClass}" src="${image}" alt="${escapeHtml(alt)}" loading="lazy" decoding="async" onerror="this.hidden=true;this.nextElementSibling.hidden=false">` : ''}
+        <span class="${image ? 'hidden' : ''} absolute inset-0 flex items-center justify-center" aria-hidden="true">
+            <span class="material-symbols-outlined text-3xl text-secondary/60">restaurant</span>
+        </span>
+    `;
+}
+
 function parsePrice(value) {
     if (typeof value === 'number' && Number.isFinite(value)) return value;
     const parsed = Number.parseFloat(String(value).replace(/[^\d.]/g, ''));
@@ -179,11 +187,11 @@ function renderCategoryNavigation() {
 }
 
 function renderProductCard(item) {
-    const image = productImages[item.id] || PLACEHOLDER_IMAGE;
+    const image = productImages[item.id];
     return `
         <article class="bg-surface-container-lowest border border-outline-variant/40 rounded-2xl p-4 flex flex-col sm:flex-row gap-4 hover:shadow-md transition-shadow">
             <div class="w-full sm:w-40 h-40 rounded-xl overflow-hidden relative shrink-0 bg-surface-container">
-                <img class="w-full h-full object-cover" src="${image}" alt="${escapeHtml(item.name)}" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='${PLACEHOLDER_IMAGE}'">
+                ${renderProductImage(image, item.name, 'absolute inset-0 h-full w-full object-cover')}
             </div>
             <div class="flex-1 flex flex-col justify-between min-w-0">
                 <div>
@@ -295,7 +303,9 @@ function ensureProductModal() {
             </header>
             <div class="overflow-y-auto p-4 sm:p-6">
                 <div class="mb-5 rounded-2xl border border-outline-variant/40 bg-surface-container-low p-4">
-                    <img id="modal-product-image" class="mb-4 h-48 w-full rounded-xl object-cover" alt="" src="${PLACEHOLDER_IMAGE}">
+                    <div id="modal-product-image" class="relative mb-4 h-48 w-full overflow-hidden rounded-xl bg-surface-container">
+                        ${renderProductImage(null, '', 'absolute inset-0 h-full w-full object-cover')}
+                    </div>
                     <div class="flex items-start justify-between gap-3">
                         <div>
                             <h3 id="modal-product-title" class="text-title-lg font-title-lg font-bold text-primary"></h3>
@@ -346,10 +356,12 @@ function openProductModal(productId, lineId = null) {
     document.getElementById('modal-product-title').textContent = activeProduct.name;
     document.getElementById('modal-product-description').textContent = activeProduct.desc;
     document.getElementById('modal-product-price').textContent = formatPrice(activeProduct.price);
-    const image = productImages[activeProduct.id] || PLACEHOLDER_IMAGE;
-    const productImage = document.getElementById('modal-product-image');
-    productImage.src = image;
-    productImage.alt = activeProduct.name;
+    const image = productImages[activeProduct.id];
+    document.getElementById('modal-product-image').innerHTML = renderProductImage(
+        image,
+        activeProduct.name,
+        'absolute inset-0 h-full w-full object-cover',
+    );
     document.getElementById('modal-note').value = existing?.note || '';
     document.getElementById('modal-addons').innerHTML = addons.map((addon, index) => `
         <label class="flex cursor-pointer items-center justify-between gap-3 rounded-xl border border-outline-variant bg-surface-container-lowest p-3 transition hover:bg-surface-container-low">
@@ -440,7 +452,7 @@ function renderCart() {
     if (!cartItems) return;
 
     cartItems.innerHTML = cart.map(line => {
-        const image = productImages[line.productId] || PLACEHOLDER_IMAGE;
+        const image = productImages[line.productId];
         const addonTags = line.addons.map(addon => `
             <span class="inline-flex items-center gap-1 rounded-full border border-outline-variant/50 bg-surface-container px-2 py-0.5 text-label-sm text-tertiary">
                 <span class="h-1.5 w-1.5 rounded-full bg-tertiary-container"></span>${escapeHtml(addon)}
@@ -448,8 +460,8 @@ function renderCart() {
         return `
             <article class="flex flex-col gap-3 rounded-xl border border-outline-variant/40 bg-surface-container-lowest p-3.5 shadow-sm">
                 <div class="flex items-start gap-3">
-                    <div class="h-20 w-20 shrink-0 overflow-hidden rounded-xl border border-outline-variant/30 bg-surface-container">
-                        <img class="h-full w-full object-cover" src="${image}" alt="${escapeHtml(line.name)}" loading="lazy" onerror="this.onerror=null;this.src='${PLACEHOLDER_IMAGE}'">
+                    <div class="relative h-20 w-20 shrink-0 overflow-hidden rounded-xl border border-outline-variant/30 bg-surface-container">
+                        ${renderProductImage(image, line.name, 'absolute inset-0 h-full w-full object-cover')}
                     </div>
                     <div class="min-w-0 flex-1">
                         <div class="flex items-start justify-between gap-2">
